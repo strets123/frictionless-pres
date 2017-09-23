@@ -41,6 +41,8 @@ frictionless data picture
 ---
 
 # But NumPy and Pandas have data schemata which can be exported via the datashape project
+
+# Or we can just use SQL for everything...
 ---
 
 # You can interpolate all these data formats using odo 
@@ -52,11 +54,41 @@ frictionless data picture
 :confused: HR, Marketing etc
 ---
 
-# Enterprise architecture didn't just go away because we invented the data science buzzword. If we like to say data is
-# everywhere let's help all the stakholders...
+* Enterprise architecture didn't just go away because we invented the data science buzzword. 
+* If we like to say data is everywhere let's help all the stakholders...
 
 ---
 # OK, enough chat, let's build an end-to-end tool using frictionless data
+
+---
+# Imaginary Brief
+
+Create an app to allow museum curators to add additional tags to a public museum dataset.
+
+* Download data and images
+* Do some preprocessing
+* Run some deep learning over them
+* Present the results in a ui allowing update of tags
+* Save the updates
+* Make the updates available again in a standardised format
+
+---
+
+# Which of the frictionless data tools and standards are we going to use?
+
+* Datapackages-pipelines - declarative flow control
+* Tableschema-py - to infer the schema and validate new data
+* Tabulator - a common interface for import and export
+* Standards - datapackages and json table schema
+* Other interoperable tools along the way
+
+---
+
+# OK, let's get started...
+
+---
+
+# Download data and images
 
 ---
 
