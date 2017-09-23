@@ -79,20 +79,90 @@ Research how styles of railway poster have changed over time
 * Datapackages-pipelines - declarative flow control
 * Tableschema-py - to infer the schema and validate new data
 * Tabulator - a common interface for import and export
-* Standards - datapackages and json table schema
+* Standards - datapackages, json table schema (also json-patch)
 * Other interoperable tools along the way
 
 ---
 
-# OK, let's get started...
+# Goal is to extend the frictionless data tools so we can write a pipeline that looks like this:
+
+    science-museum-posters:
+      title: Posters from the Science Museum augmented with image similarity 
+      description: Metadata about posters - locations and images
+      pipeline:
+        -
+          run: add_metadata
+          parameters:
+            name: 'science-museum'
+            title: 'Posters from the Science Museum augmented with image similarity'
+            homepage: 'https://collection.sciencemuseum.org.uk/'
+        -
+          run: add_resource
+          parameters:
+            url:
+            jsonapi+https://collection.sciencemuseum.org.uk/search/categories/railway%20posters,%20notices%20&%20handbills
+            name: smjsondata
+            pathtojsonlist: data
+        - 
+          run: stream_remote_resources
+          parameters:
+            resources: ['smjsondata']
+        -
+          run: apply_jsonpatch
+          parameters:
+            resources: 'smjsondata'
+            target: 'smtabulardata'
+        - 
+          run: download_images
+          parameters:
+            resources: 'smtabulardata'
+            target: local_images_list
+        - 
+          run: generate_tsne_plot
+          parameters:
+            source: local_images_list
+            target: results_stream
+---
+
+# OK so where do we start?
 
 ---
 
-# Download data and images
+# Get tabular data from a jsonapi source
 
-The dataset is in the JSON-API format and available from:
-
-https://collection.sciencemuseum.org.uk/search/categories/railway%20posters,%20notices%20&%20handbills?page[number]=1
 ---
+# Intro to tabulator-py
+
+* Tabulator-py is the successor project to "messytables"
+* A library for reading and writing tabular data (csv/xls/json/etc).
+* Reads data from local, remote, stream or text sources
+* Custom loaders, parsers and writers
+---
+# Interface
+
+    from tabulator import Stream
+
+    with Stream('http://my-url/path.csv', headers=1) as stream:
+        stream.headers # [header1, header2, ..]
+            for row in stream:
+                    row  # [value1, value2, ..]
+
+* The (custom) parser used is set by changing the protocol of the url and passing in a class
+    with Stream(
+        "custom+http://source_uri", 
+        custom_loaders={'custom': None}, 
+        custom_parsers={'custom': CustomParser}
+        ) as stream:
+        
+        stream.read()
+---
+
+* Standard http loader assumes we are not paginating but json-api gives us pagination info
+* SQL parsers have no loader class and just combine querying into the parser
+* We can take the same approach as sql and paginate during parsing
+* Pipelines stream from one task to the next - the other tasks will be done as data becomes available
+---
+# How do we implement the custom parser
+
 
 
