@@ -63,11 +63,11 @@ frictionless data picture
 ---
 # Imaginary Brief
 
-Create an app to allow museum curators to add additional tags to a public museum dataset.
+Research how styles of railway poster have changed over time
 
 * Download data and images
 * Do some preprocessing
-* Run some deep learning over them
+* Run some deep learning over them to dimension reduce the style and find patterns
 * Present the results in a ui allowing update of tags
 * Save the updates
 * Make the updates available again in a standardised format
@@ -90,6 +90,9 @@ Create an app to allow museum curators to add additional tags to a public museum
 
 # Download data and images
 
+The dataset is in the JSON-API format and available from:
+
+https://collection.sciencemuseum.org.uk/search/categories/railway%20posters,%20notices%20&%20handbills?page[number]=1
 ---
 
 
