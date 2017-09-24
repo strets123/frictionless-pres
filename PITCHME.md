@@ -147,22 +147,21 @@ Research how styles of railway poster have changed over time
             for row in stream:
                     row  # [value1, value2, ..]
 
-* The (custom) parser used is set by changing the protocol of the url and passing in a class
+* The (custom) parser used is set by changing the format parameter and passing in a class
     with Stream(
-        "custom+http://source_uri", 
-        custom_loaders={'custom': None}, 
-        custom_parsers={'custom': CustomParser}
+        "http://source_uri", 
+        custom_parsers={'json-api': CustomParser}
+        format="json-api"
         ) as stream:
         
         stream.read()
 ---
 
-* Standard http loader assumes we are not paginating but json-api gives us pagination info
-* SQL parsers have no loader class and just combine querying into the parser
-* We can take the same approach as sql and paginate during parsing
-* Pipelines stream from one task to the next - the other tasks will be done as data becomes available
----
-# How do we implement the custom parser
+# What do we want our custom parser to do? Let's write a test...
 
++++?code=smdataproject/tests/test_stream.py&lang=python
 
+@[14]
+@[17-18]
+@[22-26]
 
