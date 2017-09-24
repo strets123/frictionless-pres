@@ -1,8 +1,8 @@
-
 import unittest
 
 import tabulator
 from .. import parser
+
 
 class JSONAPIParserTestCase(unittest.TestCase):
     def test_stream(self):
@@ -24,5 +24,3 @@ class JSONAPIParserTestCase(unittest.TestCase):
                 self.assertIn("id", item[0])
                 self.assertIn("links", item[0])
                 self.assertEqual(len(item), 1)
-
-

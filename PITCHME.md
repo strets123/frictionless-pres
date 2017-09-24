@@ -6,7 +6,7 @@
 
 ### What is data management about?
 
-![Cloudstuff](cloud.jpeg)
+![Cloudstuff](cloud.jpg)
 
 ---
 
@@ -157,11 +157,85 @@ Research how styles of railway poster have changed over time
         stream.read()
 ---
 
-### What do we want our custom parser to do? Let's write a test...
+### What do we want our custom parser to do? 
 
-+++?code=smdataproject/tests/test_stream.py&lang=python
+* Let's write a test...
 
-@[14] 
-@[17-18] 
-@[22-26] 
++++?code=smdataproject/tests/test_parser.py&lang=python
+
+@[14](Test data url (see below))
+@[17-18](Pass in our custom parser) 
+@[22-26](Check we get a single item json out in the correct format)
+
++++
+
+### Test data
+
+* Hosted on github because we don't want to patch http or hammer external API
+
++++?code=data/smdataset?page[number]=0&lang=javascript
+
+@[546](Changed the next link to test pagination)
+
+* Let's make that pass
+* Use the [](tabulator json parser) as a template
+
++++?code=smdataproject/parser.py&lang=python
+
+@[66](Add a pagination loop)
+@[73](Set the startng row number on each iteration)
+@[85-91](Get the next page url and load in data for next loop)
+@[92-93](Break out of the loop if no next link)
+
+---
+
+### Make the parser support normalisation
+
+* We would like to convert the json to an array of the desired fields
+* tabulator.Stream is already using ijson parser 
+* This has support for iterating keys in json
+* We can pass in a schema which encodes the exact json normalisation desired
+
+---
+
+### Which fields to we want and what are they called in ijson language
+
+* Parse the json and print a field list, for example:
+
++++?code=smdataproject/generate_field_list.py&lang=python
+
++++?code=data/fieldlist.txt
+
+* Examples:
+
+@[40-41](The id)
+@[460-461](The title/name of the poster)
+
+---
+
+### Now we know what we are aiming for we can write a test
+
++++?code=smdataproject/tests/test_normalising_parser.py&lang=python
+
+@[35-46](Added the schema with our ijson paths)
+@[55](Pass the schema into the new parser)
+@[58-113](Cheat with the assertion by first printing stuff until it looks right...)
+
+---
+
+### Make a few assumptions based on what I have needed over the years
+
+---
+
+* The high level data array required is still passed separately to the parser
+* We always want to parse single values of type string, number or boolean
+* Where those values are repeated due to lists or lists of dicts, concatenate them
+* Any logic needed can be done on the normalised data afterwards
+
+---
+
+### The end result
+
++++?code=smdataproject/normalising_parser.py&lang=python
+
 
