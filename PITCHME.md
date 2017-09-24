@@ -1,16 +1,16 @@
 ---
 
-# Frictionless Data, Frictionless Development
+^### Frictionless Data, Frictionless Development
 
 ---
 
-# What is data management about?
+^### What is data management about?
 
 ![Cloudstuff](cloud.jpeg)
 
 ---
 
-# How do we address these problems?
+^### How do we address these problems?
 
 * Tools
 * Standards
@@ -40,14 +40,14 @@ up academic comittees to devise a long boring and unusable standard
 frictionless data picture
 ---
 
-# But NumPy and Pandas have data schemata which can be exported via the datashape project
+^### But NumPy and Pandas have data schemata which can be exported via the datashape project
 
-# Or we can just use SQL for everything...
+^### Or we can just use SQL for everything...
 ---
 
-# You can interpolate all these data formats using odo 
-# You can view things in my jupyter dashboard or via the rosetta install
-# install
+^### You can interpolate all these data formats using odo 
+^### You can view things in my jupyter dashboard or via the rosetta install
+^### install
 :smiley: datascientist
 :confused: Scientists in data-immature disciplines
 :confused: Data curators
@@ -58,10 +58,10 @@ frictionless data picture
 * If we like to say data is everywhere let's help all the stakholders...
 
 ---
-# OK, enough chat, let's build an end-to-end tool using frictionless data
+^### OK, enough chat, let's build an end-to-end tool using frictionless data
 
 ---
-# Imaginary Brief
+^### Imaginary Brief
 
 Research how styles of railway poster have changed over time
 
@@ -74,7 +74,7 @@ Research how styles of railway poster have changed over time
 
 ---
 
-# Which of the frictionless data tools and standards are we going to use?
+^### Which of the frictionless data tools and standards are we going to use?
 
 * Datapackages-pipelines - declarative flow control
 * Tableschema-py - to infer the schema and validate new data
@@ -84,7 +84,7 @@ Research how styles of railway poster have changed over time
 
 ---
 
-# Goal is to extend the frictionless data tools so we can write a pipeline that looks like this:
+^### Goal is to extend the frictionless data tools so we can write a pipeline that looks like this:
 
     science-museum-posters:
       title: Posters from the Science Museum augmented with image similarity 
@@ -124,21 +124,21 @@ Research how styles of railway poster have changed over time
             target: results_stream
 ---
 
-# OK so where do we start?
+^### OK so where do we start?
 
 ---
 
-# Get tabular data from a jsonapi source
+^### Get tabular data from a jsonapi source
 
 ---
-# Intro to tabulator-py
+^### Intro to tabulator-py
 
 * Tabulator-py is the successor project to "messytables"
 * A library for reading and writing tabular data (csv/xls/json/etc).
 * Reads data from local, remote, stream or text sources
 * Custom loaders, parsers and writers
 ---
-# Interface
+^### Interface
 
     from tabulator import Stream
 
@@ -157,11 +157,11 @@ Research how styles of railway poster have changed over time
         stream.read()
 ---
 
-# What do we want our custom parser to do? Let's write a test...
+^### What do we want our custom parser to do? Let's write a test...
 
 +++?code=smdataproject/tests/test_stream.py&lang=python
 
-@[14]
-@[17-18]
-@[22-26]
+@[14] 
+@[17-18] 
+@[22-26] 
 
