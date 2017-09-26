@@ -1,7 +1,10 @@
+import sys
+sys.path.append("..")
+
 import unittest
 
 import tabulator
-from .. import normalising_parser
+import normalising_parser
 
 
 class JSONAPIParserTestCase(unittest.TestCase):
@@ -15,7 +18,7 @@ class JSONAPIParserTestCase(unittest.TestCase):
         with tabulator.Stream(
             url,
             format="json-api", 
-            custom_parsers={"json-api": normalising_parser.NomalisingJSONAPIParser},
+            custom_parsers={"json-api": normalising_parser.NormalisingJSONAPIParser},
             property='data',
             ) as stream:
             for index, item in enumerate(stream):
@@ -51,7 +54,7 @@ class JSONAPIParserTestCase(unittest.TestCase):
         with tabulator.Stream(
             url,
             format="json-api", 
-            custom_parsers={"json-api": normalising_parser.NomalisingJSONAPIParser},
+            custom_parsers={"json-api": normalising_parser.NormalisingJSONAPIParser},
             property='data',
             jsonpath_schema=schema_with_ijson,
             ) as stream:

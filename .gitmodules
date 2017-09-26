@@ -1,0 +1,3 @@
+[submodule "smdataproject/image-similarity"]
+	path = smdataproject/image-similarity
+	url = https://github.com/zegami/image-similarity-clustering

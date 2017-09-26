@@ -1,7 +1,10 @@
+import sys
+sys.path.append("..")
+
 import unittest
 
 import tabulator
-from .. import parser
+import parser
 
 
 class JSONAPIParserTestCase(unittest.TestCase):

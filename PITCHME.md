@@ -9,7 +9,12 @@
 ![Cloudstuff](cloud.jpg)
 
 ---
+### What are the fallacies of data science?
 
+
+---
+* Once we solved all these things, let's not do it again...
+---
 ### How do we address these problems?
 
 * Tools

@@ -1,0 +1,86 @@
+science-museum-posters:
+  title: Posters from the Science Museum augmented with image similarity 
+  description: Metadata about posters - locations and images
+  pipeline:
+    -
+      run: add_metadata
+      parameters:
+        name: 'science-museum'
+        title: 'Posters from the Science Museum augmented with image similarity'
+        homepage: 'https://collection.sciencemuseum.org.uk/'
+    -
+      run: add_resource
+      parameters:
+        #url: 'https://collection.sciencemuseum.org.uk/search/categories/railway%20posters,%20notices%20&%20handbills'
+        url: 'https://raw.githubusercontent.com/strets123/frictionless-pres/master/data/smdataset%3Fpage%5Bnumber%5D%3D0'
+        name: 'smjsondata'
+        property: 'data'
+        format: 'json-api'
+        headers: ['id',
+                  'name',
+                  'earliest_date',
+                  'latest_date',
+                  'description',
+                  'large_image_link',
+                  'large_thumbnail_link',
+                  'small_thumbnail_link',
+                  'makers',
+                  'maker_types',
+                  ]
+        jsonpath_schema:
+          fields:
+          - name: 'id'
+            ijson_path: 'data.item.attributes.identifier.item.value'
+          - name: 'name'
+            ijson_path: 'data.item.attributes.title.item.value'
+          - name: 'earliest_date'
+            ijson_path: 'data.item.attributes.lifecycle.creation.item.date.item.earliest'
+          - name: 'latest_date'
+            ijson_path: 'data.item.attributes.lifecycle.creation.item.date.item.latest'
+          - name: 'description'
+            ijson_path: 'data.item.attributes.description.item.value'
+          - name: 'large_image_link'
+            ijson_path: 'data.item.attributes.multimedia.item.processed.large.location'
+          - name: 'large_thumbnail_link'
+            ijson_path: 'data.item.attributes.multimedia.item.processed.large_thumbnail.location'
+          - name: 'small_thumbnail_link'
+            ijson_path: 'data.item.attributes.multimedia.item.processed.small_thumbnail.location'
+          - name: 'makers'
+            ijson_path: 'data.item.attributes.lifecycle.creation.item.maker.item.summary_title'
+          - name: 'maker_types'
+            ijson_path: 'data.item.attributes.lifecycle.creation.item.maker.item.@link.role.item.value'
+    -
+      run: stream_remote_resources_custom
+      parameters:
+        resources: ['smjsondata']
+    -
+      run: dump.to_path
+      parameters:
+          out-path: smjsondata
+          format: csv
+          force-format: false
+    -
+      run: download_images
+      parameters:
+        resources: ['smjsondata']
+        local_image_column: 'image'
+        remote_image-url: 'large_thumbnail_link'
+        local_path: 'smjsondata/data/images/'
+    -
+      run: csv_to_tsv
+      parameters:
+        resources: ['smjsondata']
+    -
+      run: run_shell_command
+      parameters:
+        arguments: ['python',
+        'image-similarity/extract.py',
+        'smjsondata/data/smjsondata.tsv',
+        'Xception']
+    -
+      run: run_shell_command
+      parameters:
+        arguments: ['python',
+        'image-similarity/extract.py',
+        'smjsondata/data/smjsondata_features.tsv',]
+

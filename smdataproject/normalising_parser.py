@@ -13,12 +13,11 @@ from tabulator import helpers
 # Module API
 
 
-class NomalisingJSONAPIParser(Parser):
+class NormalisingJSONAPIParser(Parser):
     """Parser to parse JSON API data format.
     Note that subclassing the JSONParser was not trivial due to the
     __iter_extended_rows function being private and used outside
     """
-
 
     options = [
         'property',
@@ -74,7 +73,7 @@ class NomalisingJSONAPIParser(Parser):
                 if event in ('null', 'string'):
                     self.__next_url = value
             if (prefix, event) == (path, 'start_map'):
-                current_value = [None for i in range(len(self.__jsonpath_schema["fields"]))]
+                current_value = ["" for i in range(len(self.__jsonpath_schema["fields"]))]
             if (prefix, event) == (path, 'end_map'):
                 start_rownum += 1
                 yield start_rownum, column_names, current_value
