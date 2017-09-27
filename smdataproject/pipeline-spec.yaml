@@ -54,18 +54,18 @@ science-museum-posters:
       parameters:
         resources: ['smjsondata']
     -
-      run: dump.to_path
-      parameters:
-          out-path: smjsondata
-          format: csv
-          force-format: false
-    -
       run: download_images
       parameters:
         resources: ['smjsondata']
         local_image_column: 'image'
         remote_image-url: 'large_thumbnail_link'
         local_path: 'smjsondata/data/images/'
+    -
+      run: dump.to_path
+      parameters:
+          out-path: smjsondata
+          format: csv
+          force-format: false
     -
       run: csv_to_tsv
       parameters:
@@ -81,6 +81,7 @@ science-museum-posters:
       run: run_shell_command
       parameters:
         arguments: ['python',
-        'image-similarity/extract.py',
-        'smjsondata/data/smjsondata_features.tsv',]
+        'image-similarity/tsne.py',
+        'smjsondata/data/smjsondata_features.tsv',
+        ]
 

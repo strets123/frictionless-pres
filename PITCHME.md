@@ -10,41 +10,40 @@
 
 ---
 #### Means many things to many people
-+++
-
-* As a data scientist I want:
-    * Reproducible analyses
-    * Reusable, modular code
-    * Test-driven data science
-    * Package management for data
-+++
-* As a developer I additionally want:
-    * Architectural guidance
-    * Polygot persistence
-    * Ability to swap out tools
-+++
-* As an ops person I also want
-    * Declarative tools that are easy to containerise
-    * Streaming data for low memory usage
-    * Consisten data formats across varied customers
 ---
-* Who are Zegami's users?
-    * People managment - HR and Schools
-    * Data scientists
-    * Museum curators
-    * Scientists
-+++
-* As an evangelist for Zegami I want:
-    * Interoperability with customer datastores
-    * To do the right thing - open source, open standards
-    * Different user levels
-        * Standards should work in the front end too
 
+#### As a data scientist I want:
+* Reproducible analyses
+* Reusable, modular code
+* Test-driven data science
+* Package management for data
+---
+#### As a developer I additionally want:
+* Architectural guidance
+* Polygot persistence
+* Ability to swap out tools
+---
+#### As an ops person I also want
+* Declarative tools that are easy to containerise
+* Streaming data for low memory usage
+* Consisten data formats across varied customers
+---
+#### Who are Zegami's users?
+* People managment - HR and Schools
+* Data scientists
+* Museum curators
+* Scientists
+---
+#### As an evangelist for Zegami I want:
+* Interoperability with customer datastores
+* To do the right thing - open source, open standards
+* Standards that work for both end and CLI tools
+* CLI usability for non-coders
 ---
 
 * Frictionless data provides cross-platform ways of describing and using datasets
     * Data package management
-    * Building blocks for
+    * Building blocks for data
         * import
         * validation
         * processing
@@ -57,7 +56,7 @@
 ---
 * When you are struggling with a data model for a task or a schema, frictionless data's standards provide guidance
 * Frictionless data does for me as a data engineer what djangopackages does for me as a web developer
-+++
+---
 #### For example:
 * <a href="http://frictionlessdata.io/tools/#mira" target="_blank">Mira - A web api for csv datasets</a>
 * <a href="https://github.com/frictionlessdata/datapackage-pipelines#join" target="_blank">How to model a join in a database </a>
@@ -70,6 +69,9 @@
 
 Research how styles of railway poster have changed over time
 
+---
+#### Tasks
+
 * Download and preprocess data and images
 * Run some deep learning to find patterns
 * Present the results in a ui allowing update of tags
@@ -79,12 +81,13 @@ Research how styles of railway poster have changed over time
 
 #### Which of the frictionless data tools and standards?
 
-* Datapackage-pipelines - declarative flow control
-* Tableschema-py - to infer the schema and validate new data
-* Tabulator - a common interface for import and export
-* Standards - datapackages, json table schema (also json-patch)
+* <a href="http://okfnlabs.org/blog/2017/02/27/datapackage-pipelines.html" target="_blank">Datapackage-pipelines</a> - declarative flow control
+* <a href="https://github.com/frictionlessdata/tableschema-py" target="_blank">Tableschema-py</a> - to infer the schema and validate new data
+* <a href="https://github.com/frictionlessdata/tabulator-py" target="_blank">Tabulator</a> - a common interface for import and export of tabular data
+* Standards - <a href="http://frictionlessdata.io/data-packages/" target="_blank">datapackages</a>, <a href="http://dataprotocols.readthedocs.io/en/latest/json-table-schema.html" target="_blank">json table schema</a>,  <a href="https://github.com/frictionlessdata/datapackage-pipelines" target="_blank"> datapackage-pipeline</a> spec
 * Other interoperable tools along the way
 
+---
 #### OK so where do we start?
 
 ---
@@ -210,9 +213,21 @@ Research how styles of railway poster have changed over time
 
 +++?code=smdataproject/pipeline-spec.yaml&lang=yaml
 
+@[1-10](Add some metadata)
+@[12-15](Add the data package arguments)
+@[53-56](Custom job to download the data)
+@[56-62](Custom job to download the images)
 
+---
+* Simple custom job stream_remote_resources_custom
 
++++?code=smdataproject/stream_remote_resources_custom.py&lang=python
+@[3](Monkey-path the custom module)
 
-
+---
+* Another custom job for download_images
+* This time we need to edit the data and add an image field
++++?code=smdataproject/download_images.py&lang=python
+@[11-20](Initially we update the )
 
 

@@ -24,7 +24,7 @@ def run_shell_command(command_line_args):
     except (OSError, subprocess.CalledProcessError) as exception:
         logging.info('Exception occured: ' + str(exception))
         logging.info('Subprocess failed')
-        return False
+        raise exception
     else:
         # no exception was raised
         logging.info('Subprocess finished')
