@@ -1,87 +1,77 @@
 ---
 
-### Frictionless Data, Frictionless Development
+#### Frictionless Data, Frictionless Development
 
 ---
 
-### What is data management about?
+#### What is data management about?
 
 ![Cloudstuff](cloud.jpg)
++++
+
+* As a data scientist I want:
+    * Reproducible analyses
+    * Reusable, modular code
+    * Test-driven data science
++++
+* As a developer I additionally want:
+    * Architectural guidance
+    * Polygot persistence
+    * Ability to swap out tools
++++
+* As an ops person I also want
+    * Declarative tools that are easy to containerise
+    * Streaming data for low memory usage
+    * Consisten data formats across varied customers
+---
+* Who are Zegami's users?
+    * People managment - HR and Schools
+    * Data scientists
+    * Museum curators
+    * Scientists
++++
+* As an evangelist for Zegami I want:
+    * Interoperability with customer datastores
+    * To do the right thing - open source, open standards
+    * Different user levels
+        * Standards should work in the front end too
 
 ---
-### What are the fallacies of data science?
 
-
----
-* Once we solved all these things, let's not do it again...
----
-### How do we address these problems?
-
-* Tools
-* Standards
-* (Processes)
+* Frictionless data provides cross-platform ways of describing and using datasets
+    * Easier to switch tools
 
 ---
 
-* What stakeholders do our tools and standards need to cater for?
-
-pic - BI people, data generators (e.g. lab scientists, logistics people, data curators) data scientists, academics
-But also the even less technical people:
-HR people, Marketing people
-
+* Building blocks for
+    * import
+    * validation
+    * processing
+    * export
+    * display
++++
+<iframe src="frictionlessdata.io"/>
 ---
-
-* How should our tools be architected?
-
-vendor platforms vs microservices vs mvp tools that do one things well vs sacrificing accesability for flexibility vs setting
-up academic comittees to devise a long boring and unusable standard
-
----
-
-* Frictionless data aims to bridge these disperate fields to provide cross-platform ways of describing and using datasets
-* When a bespoke tool is needed, frictionless data provides some great building blocks across the stack to help with
-* import, validation, processing, export and display
 * When you are struggling with a data model for a task or a schema, frictionless data's standards provide guidance
-frictionless data picture
----
-
-### But NumPy and Pandas have data schemata which can be exported via the datashape project
-
-### Or we can just use SQL for everything...
----
-
-### You can interpolate all these data formats using odo 
-### You can view things in my jupyter dashboard or via the rosetta install
-### install
-:smiley: datascientist
-:confused: Scientists in data-immature disciplines
-:confused: Data curators
-:confused: HR, Marketing etc
----
-
-* Enterprise architecture didn't just go away because we invented the data science buzzword. 
-* If we like to say data is everywhere let's help all the stakholders...
 
 ---
-### OK, enough chat, let's build an end-to-end tool using frictionless data
+#### OK, enough chat, let's build an end-to-end tool using frictionless data
 
 ---
-### Imaginary Brief
+#### Imaginary Brief
 
 Research how styles of railway poster have changed over time
 
-* Download data and images
-* Do some preprocessing
-* Run some deep learning over them to dimension reduce the style and find patterns
+* Download and preprocess data and images
+* Run some deep learning to find patterns
 * Present the results in a ui allowing update of tags
-* Save the updates
 * Make the updates available again in a standardised format
 
 ---
 
-### Which of the frictionless data tools and standards are we going to use?
+#### Which of the frictionless data tools and standards?
 
-* Datapackages-pipelines - declarative flow control
+* Datapackage-pipelines - declarative flow control
 * Tableschema-py - to infer the schema and validate new data
 * Tabulator - a common interface for import and export
 * Standards - datapackages, json table schema (also json-patch)
@@ -89,61 +79,25 @@ Research how styles of railway poster have changed over time
 
 ---
 
-### Goal is to extend the frictionless data tools so we can write a pipeline that looks like this:
+#### Goal is to extend the frictionless data tools so we can write a pipeline that looks like this:
 
-    science-museum-posters:
-      title: Posters from the Science Museum augmented with image similarity 
-      description: Metadata about posters - locations and images
-      pipeline:
-        -
-          run: add_metadata
-          parameters:
-            name: 'science-museum'
-            title: 'Posters from the Science Museum augmented with image similarity'
-            homepage: 'https://collection.sciencemuseum.org.uk/'
-        -
-          run: add_resource
-          parameters:
-            url:
-            jsonapi+https://collection.sciencemuseum.org.uk/search/categories/railway%20posters,%20notices%20&%20handbills
-            name: smjsondata
-            pathtojsonlist: data
-        - 
-          run: stream_remote_resources
-          parameters:
-            resources: ['smjsondata']
-        -
-          run: apply_jsonpatch
-          parameters:
-            resources: 'smjsondata'
-            target: 'smtabulardata'
-        - 
-          run: download_images
-          parameters:
-            resources: 'smtabulardata'
-            target: local_images_list
-        - 
-          run: generate_tsne_plot
-          parameters:
-            source: local_images_list
-            target: results_stream
----
 
-### OK so where do we start?
+
+#### OK so where do we start?
 
 ---
 
-### Get tabular data from a jsonapi source
+#### Get tabular data from a jsonapi source
 
 ---
-### Intro to tabulator-py
+#### Intro to tabulator-py
 
 * Tabulator-py is the successor project to "messytables"
 * A library for reading and writing tabular data (csv/xls/json/etc).
 * Reads data from local, remote, stream or text sources
 * Custom loaders, parsers and writers
 ---
-### Interface
+#### Interface
 
     from tabulator import Stream
 
@@ -162,7 +116,7 @@ Research how styles of railway poster have changed over time
         stream.read()
 ---
 
-### What do we want our custom parser to do? 
+#### What do we want our custom parser to do? 
 
 * Let's write a test...
 
@@ -174,7 +128,7 @@ Research how styles of railway poster have changed over time
 
 +++
 
-### Test data
+#### Test data
 
 * Hosted on github because we don't want to patch http or hammer external API
 
@@ -194,7 +148,7 @@ Research how styles of railway poster have changed over time
 
 ---
 
-### Make the parser support normalisation
+#### Make the parser support normalisation
 
 * We would like to convert the json to an array of the desired fields
 * tabulator.Stream is already using ijson parser 
@@ -203,7 +157,7 @@ Research how styles of railway poster have changed over time
 
 ---
 
-### Which fields to we want and what are they called in ijson language
+#### Which fields to we want and what are they called in ijson language
 
 * Parse the json and print a field list, for example:
 
@@ -218,7 +172,7 @@ Research how styles of railway poster have changed over time
 
 ---
 
-### Now we know what we are aiming for we can write a test
+#### Now we know what we are aiming for we can write a test
 
 +++?code=smdataproject/tests/test_normalising_parser.py&lang=python
 
@@ -228,7 +182,7 @@ Research how styles of railway poster have changed over time
 
 ---
 
-### Make a few assumptions based on what I have needed over the years
+#### Make a few assumptions based on what I have needed over the years
 
 ---
 
@@ -239,8 +193,38 @@ Research how styles of railway poster have changed over time
 
 ---
 
-### The end result
+#### The end result
 
 +++?code=smdataproject/normalising_parser.py&lang=python
+
+
+
+
+
+
+
+---
+
+#### But NumPy and Pandas have data schemata which can be exported via the datashape project
+
+#### Or we can just use SQL for everything...
+---
+
+#### You can interpolate all these data formats using odo 
+#### You can view things in my jupyter dashboard or via the rosetta install
+#### install
+:smiley: datascientist
+:confused: Scientists in data-immature disciplines
+:confused: Data curators
+:confused: HR, Marketing etc
+---
+
+* Enterprise architecture didn't just go away because we invented the data science buzzword. 
+* If we like to say data is everywhere let's help all the stakholders...
+
+
+
+
+
 
 
