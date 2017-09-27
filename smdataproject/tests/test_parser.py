@@ -4,7 +4,7 @@ sys.path.append("..")
 import unittest
 
 import tabulator
-import parser
+from smdataproject import jsonapi_parser
 
 
 class JSONAPIParserTestCase(unittest.TestCase):
@@ -18,7 +18,7 @@ class JSONAPIParserTestCase(unittest.TestCase):
         with tabulator.Stream(
             url,
             format="json-api", 
-            custom_parsers={"json-api": parser.JSONAPIParser},
+            custom_parsers={"json-api": jsonapi_parser.JSONAPIParser},
             property='data',
             ) as stream:
             for index, item in enumerate(stream):

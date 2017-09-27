@@ -18,13 +18,11 @@ class JSONAPIParser(Parser):
     Note that subclassing the JSONParser was not trivial due to the
     __iter_extended_rows function being private and used outside
     """
-
-
     options = [
         'property',
     ]
 
-    def __init__(self, loader, force_parse=False, property=None, flatten_delimiter=None):
+    def __init__(self, loader, force_parse=False, property=None):
         self.__loader = loader
         self.__property = property
         self.__force_parse = force_parse
@@ -60,8 +58,12 @@ class JSONAPIParser(Parser):
     def extended_rows(self):
         return self.__extended_rows
 
-
     def __iter_extended_rows(self):
+        """Use a while True loop to paginate the JSON-API API.
+
+        Use the next attribute to keep looping until
+        there are no pages left
+        """
         start_rownum = 1
         while True:
             path = 'item'
@@ -70,7 +72,6 @@ class JSONAPIParser(Parser):
             items = ijson.items(self.__chars, path)
             for row_number, item in enumerate(items, start=start_rownum):
                 if isinstance(item, dict):
-                    
                     yield (row_number, None, [item])
                 else:
                     if not self.__force_parse:
@@ -86,6 +87,5 @@ class JSONAPIParser(Parser):
             if next_url is not None:
                 self.__chars = self.__loader.load(next_url, encoding=self.__encoding)
                 self.__chars.seek(0)
-
             else:
                 break

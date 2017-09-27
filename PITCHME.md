@@ -4,15 +4,19 @@
 
 ---
 
-#### What is data management about?
+#### What is data / document management about?
 
 ![Cloudstuff](cloud.jpg)
+
+---
+#### Means many things to many people
 +++
 
 * As a data scientist I want:
     * Reproducible analyses
     * Reusable, modular code
     * Test-driven data science
+    * Package management for data
 +++
 * As a developer I additionally want:
     * Architectural guidance
@@ -39,7 +43,7 @@
 ---
 
 * Frictionless data provides cross-platform ways of describing and using datasets
-    * Easier to switch tools
+    * Data package management
     * Building blocks for
         * import
         * validation
@@ -50,10 +54,13 @@
 ---
 #### <a href="http://frictionlessdata.io/tools/" target="_blank">frictionlessdata.io/tools/</a>
 
-+++
-
 ---
 * When you are struggling with a data model for a task or a schema, frictionless data's standards provide guidance
+* Frictionless data does for me as a data engineer what djangopackages does for me as a web developer
++++
+#### For example:
+* <a href="http://frictionlessdata.io/tools/#mira" target="_blank">Mira - A web api for csv datasets</a>
+* <a href="https://github.com/frictionlessdata/datapackage-pipelines#join" target="_blank">How to model a join in a database </a>
 
 ---
 #### OK, enough chat, let's build an end-to-end tool using frictionless data
@@ -77,12 +84,6 @@ Research how styles of railway poster have changed over time
 * Tabulator - a common interface for import and export
 * Standards - datapackages, json table schema (also json-patch)
 * Other interoperable tools along the way
-
----
-
-#### Goal is to extend the frictionless data tools so we can write a pipeline that looks like this:
-
-
 
 #### OK so where do we start?
 
@@ -123,9 +124,9 @@ Research how styles of railway poster have changed over time
 
 +++?code=smdataproject/tests/test_parser.py&lang=python
 
-@[14](Test data url (see below))
-@[17-18](Pass in our custom parser) 
-@[22-26](Check we get a single item json out in the correct format)
+@[17](Test data url (see below))
+@[20-21](Pass in our custom parser) 
+@[25-29](Check we get a single item json out in the correct format)
 
 +++
 
@@ -133,19 +134,19 @@ Research how styles of railway poster have changed over time
 
 * Hosted on github because we don't want to patch http or hammer external API
 
-+++?code=data/smdataset?page[number]=0&lang=javascript
++++?code=data/smdatasetpagenumber0&lang=javascript
 
 @[546](Changed the next link to test pagination)
 
 * Let's make that pass
-* Use the [](tabulator json parser) as a template
+* Use the [https://github.com/frictionlessdata/tabulator-py/blob/563e3cc9355e456d2da309990ad8b8354b4ce180/tabulator/parsers/json.py](tabulator json parser) as a template.
 
-+++?code=smdataproject/parser.py&lang=python
++++?code=smdataproject/jsonapi_parser.py&lang=python
 
-@[66](Add a pagination loop)
+@[68](Add a pagination loop)
 @[73](Set the startng row number on each iteration)
-@[85-91](Get the next page url and load in data for next loop)
-@[92-93](Break out of the loop if no next link)
+@[83-89](Get the next page url and load in data for next loop)
+@[90-91](Break out of the loop if no next link)
 
 ---
 
@@ -177,9 +178,9 @@ Research how styles of railway poster have changed over time
 
 +++?code=smdataproject/tests/test_normalising_parser.py&lang=python
 
-@[35-46](Added the schema with our ijson paths)
-@[55](Pass the schema into the new parser)
-@[58-113](Cheat with the assertion by first printing stuff until it looks right...)
+@[42-58](Added the schema with our ijson paths)
+@[68](Pass the schema into the new parser)
+@[71-118](Cheat with the assertion by first printing stuff until it looks right...)
 
 ---
 
@@ -190,7 +191,6 @@ Research how styles of railway poster have changed over time
 * The high level data array required is still passed separately to the parser
 * We always want to parse single values of type string, number or boolean
 * Where those values are repeated due to lists or lists of dicts, concatenate them
-* Any logic needed can be done on the normalised data afterwards
 
 ---
 
@@ -198,30 +198,17 @@ Research how styles of railway poster have changed over time
 
 +++?code=smdataproject/normalising_parser.py&lang=python
 
+@[65-87](Use ijson to iterate json in an event-driven way)
 
-
-
-
-
+* Similar to native Java JSON Object building
+* Ask me about this afterwards if you want to know more
 
 ---
 
-#### But NumPy and Pandas have data schemata which can be exported via the datashape project
+* Now need to download images in a piepline after we get the data
+* Need a pipeline spec yaml file
 
-#### Or we can just use SQL for everything...
----
-
-#### You can interpolate all these data formats using odo 
-#### You can view things in my jupyter dashboard or via the rosetta install
-#### install
-:smiley: datascientist
-:confused: Scientists in data-immature disciplines
-:confused: Data curators
-:confused: HR, Marketing etc
----
-
-* Enterprise architecture didn't just go away because we invented the data science buzzword. 
-* If we like to say data is everywhere let's help all the stakholders...
++++?code=smdataproject/pipeline-spec.yaml&lang=yaml
 
 
 
