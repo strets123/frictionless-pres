@@ -40,17 +40,18 @@
 
 * Frictionless data provides cross-platform ways of describing and using datasets
     * Easier to switch tools
-
+    * Building blocks for
+        * import
+        * validation
+        * processing
+        * export
+        * display
+        * apis
 ---
+#### <a href="http://frictionlessdata.io/tools/" target="_blank">frictionlessdata.io/tools/</a>
 
-* Building blocks for
-    * import
-    * validation
-    * processing
-    * export
-    * display
 +++
-<iframe src="frictionlessdata.io"/>
+
 ---
 * When you are struggling with a data model for a task or a schema, frictionless data's standards provide guidance
 
