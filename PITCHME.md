@@ -14,7 +14,7 @@
 
 #### As a data scientist I want:
 * Reproducible analyses
-* Reusable, modular code
+* Flexibility to work with legacy scripts
 * Test-driven data science
 * Package management for data
 ---
@@ -22,11 +22,16 @@
 * Architectural guidance
 * Polygot persistence
 * Ability to swap out tools
+* Single point of responsibility for each module
 ---
 #### As an ops person I also want
 * Declarative tools that are easy to containerise
 * Streaming data for low memory usage
-* Consisten data formats across varied customers
+* Consistent data formats across varied customers
+---
+#### What is Zegami and why are Zegami interested in Frictionless data?
+* Zegami makes visual information more accesible for exploration, search and discovery.
+* Zegami allows data scientists to validate machine learning models visually.
 ---
 #### Who are Zegami's users?
 * People managment - HR and Schools
@@ -54,8 +59,10 @@
 #### <a href="http://frictionlessdata.io/tools/" target="_blank">frictionlessdata.io/tools/</a>
 
 ---
+* The community is great, pull requests are merged quickly
 * When you are struggling with a data model for a task or a schema, frictionless data's standards provide guidance
 * Frictionless data does for me as a data engineer what djangopackages does for me as a web developer
+
 ---
 #### For example:
 * <a href="http://frictionlessdata.io/tools/#mira" target="_blank">Mira - A web api for csv datasets</a>
@@ -67,7 +74,7 @@
 ---
 #### Imaginary Brief
 
-Research how styles of railway poster have changed over time
+* Research how styles of railway posters from the National Railway Museum collection have changed over time
 
 ---
 #### Tasks
@@ -228,6 +235,6 @@ Research how styles of railway poster have changed over time
 * Another custom job for download_images
 * This time we need to edit the data and add an image field
 +++?code=smdataproject/download_images.py&lang=python
-@[11-20](Initially we update the )
+@[11-20](Initially we update the datapackage to include a local field name)
 
 

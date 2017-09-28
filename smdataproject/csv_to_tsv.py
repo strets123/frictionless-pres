@@ -3,10 +3,10 @@ import pandas
 
 
 def convert_to_tsv(resource):
-    fn = resource + '/data/' + resource
+    fn = '/data/' + resource
     df = pandas.read_csv(fn + '.csv',
                          sep=',')
-    df.to_csv(fn + '.tsv',  sep='\t')
+    df.to_csv(fn + '.tsv',  sep='\t', index=False)
 
 
 parameters, datapackage, res_iter = ingest()

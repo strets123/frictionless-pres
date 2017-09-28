@@ -21,10 +21,15 @@ def modify_datapackage(datapackage, parameters, _):
 
 
 def download_image(url, path):
-    resp = requests.get(url, stream=True)
-    with open(path, 'wb') as f:
-        resp.raw.decode_content = True
-        shutil.copyfileobj(resp.raw, f)
+    if not os.path.exists(path):
+        if url:
+            try:
+                resp = requests.get(url, stream=True, timeout=0.2)
+                with open(path, 'wb') as f:
+                    resp.raw.decode_content = True
+                    shutil.copyfileobj(resp.raw, f)
+            except requests.exceptions.Timeout:
+                pass
 
 
 def image_location(url):
@@ -36,11 +41,12 @@ def image_location(url):
 def process_row(row, _1, _2, resource_index, parameters, _):
     if resource_index == 0:
         url = row[parameters['remote_image-url']]
-        new_location = image_location(
-            url,
-        )
-        row[parameters['local_image_column']] = new_location
-        download_image(url, os.path.join(parameters["local_path"], new_location))
+        if url is not None:
+            new_location = image_location(
+                url,
+            )
+            row[parameters['local_image_column']] = new_location
+            download_image(url, os.path.join(parameters["local_path"], new_location))
     return row
 
 

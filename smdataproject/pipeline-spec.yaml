@@ -11,8 +11,8 @@ science-museum-posters:
     -
       run: add_resource
       parameters:
-        #url: 'https://collection.sciencemuseum.org.uk/search/categories/railway%20posters,%20notices%20&%20handbills'
-        url: 'https://raw.githubusercontent.com/strets123/frictionless-pres/master/data/smdataset%3Fpage%5Bnumber%5D%3D0'
+        url: 'http://collection.sciencemuseum.org.uk/search/images/categories/railway%20posters,%20notices%20&%20handbills?page[number]=0'
+#        url: 'https://raw.githubusercontent.com/strets123/frictionless-pres/master/data/smdataset%3Fpage%5Bnumber%5D%3D0'
         name: 'smjsondata'
         property: 'data'
         format: 'json-api'
@@ -51,6 +51,7 @@ science-museum-posters:
             ijson_path: 'data.item.attributes.lifecycle.creation.item.maker.item.@link.role.item.value'
     -
       run: stream_remote_resources_custom
+      cached: true
       parameters:
         resources: ['smjsondata']
     -
@@ -59,29 +60,91 @@ science-museum-posters:
         resources: ['smjsondata']
         local_image_column: 'image'
         remote_image-url: 'large_thumbnail_link'
-        local_path: 'smjsondata/data/images/'
+        local_path: 'data/images/'
+
     -
       run: dump.to_path
-      parameters:
-          out-path: smjsondata
-          format: csv
-          force-format: false
-    -
-      run: csv_to_tsv
-      parameters:
+      parementers:
         resources: ['smjsondata']
+        out-path: 'smjsondata'
+
+science-museum-feature-extract:
+  title: Posters from the Science Museum augmented with image similarity
+  description: Metadata about posters - locations and images
+  pipeline:
     -
       run: run_shell_command
       parameters:
         arguments: ['python',
         'image-similarity/extract.py',
-        'smjsondata/data/smjsondata.tsv',
-        'Xception']
+        'data/smjsondata.csv',
+        'Xception', '--delimiter', ',']
+
+science-museum-feature-tsne:
+  pipeline:
     -
       run: run_shell_command
       parameters:
         arguments: ['python',
         'image-similarity/tsne.py',
-        'smjsondata/data/smjsondata_features.tsv',
+        '--delimiter', ',',
+        'data/smjsondata_features.csv',
+
         ]
 
+science-museum-join:
+  dependencies:
+    -
+      datapackage: 'datapackage.json'
+  pipeline:
+    -
+      run: add_resource
+      parameters:
+        url: 'data/smjsondata_features_tsne.csv'
+        name: 'tsne'
+        format: 'csv'
+        headers: ['id',
+                  'x',
+                  'y',
+                  ]
+        schema:
+          fields:
+          -
+            name: 'id'
+            type: 'string'
+          -
+            name: 'x'
+            type: 'string'
+          -
+            name: 'y'
+            type: 'string'
+    -
+      run: add_resource
+      parameters:
+        url: 'data/smjsondata.csv'
+        name: 'smjsondata2'
+        format: 'csv'
+    -
+      run: stream_remote_resources
+      parameters:
+        resources: ['tsne','smjsondata2']
+    -
+      run: join
+      parameters:
+        target:
+          name: 'smjsondata2'
+          key: 'id'
+        source:
+          name: 'tsne'
+          key: 'id'
+        fields:
+          tsne_x:
+            name: 'x'
+          tsne_y:
+            name: 'y'
+        full: true
+    -
+      run: dump.to_path
+      parementers:
+        resources: ['smjsondata2']
+        out-path: 'smjsondata_joined'

@@ -3,7 +3,7 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import unicode_literals
-
+import time
 import ijson
 from tabulator.parser import Parser
 from tabulator import exceptions
@@ -69,6 +69,7 @@ class NormalisingJSONAPIParser(Parser):
         pick_fields = tuple([f["ijson_path"] for f in self.__jsonpath_schema["fields"]])
         current_value = None
         for prefix, event, value in data:
+
             if prefix == "links.next":
                 if event in ('null', 'string'):
                     self.__next_url = value
@@ -115,6 +116,7 @@ class NormalisingJSONAPIParser(Parser):
                 
             else:
                 rows = self.ijson_path_parse(start_rownum, path)
+
             for row in rows:
                 start_rownum += 1
                 yield row
@@ -127,7 +129,7 @@ class NormalisingJSONAPIParser(Parser):
                     self.__next_url = k["links"]["next"]
                     break
             if self.__next_url is not None:
-
+                time.sleep(5)
                 self.__chars = self.__loader.load(self.__next_url , encoding=self.__encoding)
                 self.__chars.seek(0)
             else:
