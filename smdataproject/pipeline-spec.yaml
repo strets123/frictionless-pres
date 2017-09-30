@@ -131,6 +131,7 @@ science-museum-join:
         url: 'data/smjsondata.csv'
         name: 'smjsondata2'
         format: 'csv'
+        encoding: 'utf-8'
     -
       run: stream_remote_resources
       parameters:
