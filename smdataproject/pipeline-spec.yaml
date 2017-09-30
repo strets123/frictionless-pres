@@ -71,6 +71,9 @@ science-museum-posters:
 science-museum-feature-extract:
   title: Posters from the Science Museum augmented with image similarity
   description: Metadata about posters - locations and images
+  dependencies:
+    -
+      pipeline: ./science-museum-posters
   pipeline:
     -
       run: run_shell_command
@@ -81,6 +84,9 @@ science-museum-feature-extract:
         'Xception', '--delimiter', ',']
 
 science-museum-feature-tsne:
+  dependencies:
+    -
+      pipeline: ./science-museum-feature-extract
   pipeline:
     -
       run: run_shell_command
@@ -89,7 +95,6 @@ science-museum-feature-tsne:
         'image-similarity/tsne.py',
         '--delimiter', ',',
         'data/smjsondata_features.csv',
-
         ]
 
 science-museum-join:

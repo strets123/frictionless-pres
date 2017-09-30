@@ -181,10 +181,11 @@
 
 +++?code=data/fieldlist.yaml&lang=yaml
 
-* Examples:
++++
 
-@[40-41](The id)
-@[460-461](The title/name of the poster)
+* Examples:
+@[5-6](The id)
+@[561-562](The title/name of the poster)
 
 ---
 
@@ -241,4 +242,52 @@
 +++?code=smdataproject/download_images.py&lang=python
 @[11-20](Initially we update the datapackage to include a local field name)
 
+---
+# Now for the deep learning step using pandas, tensorflow and keras
+
+---
+* Now we have the images downloaded, I have some pandas code to integrate
+* Pandas code uses `read_csv` which is not streaming
+* Create new pipelines which depend on the initial one
+---
+# Back to our pipeline
+
+---
+
++++?code=smdataproject/pipeline-spec.yaml&lang=yaml
+
+@[65-69](Dump out the data)
+@[71-85](Add a step to run feature extraction as a subprocess)
+@[71-85](Add a step to run feature extraction as a subprocess)
+@[86-98](Run the dimensionality reduction step to convert the feautres to a scatter plot)
+
+---
+# Custom job to run a subprocess
+
+---
++++?code=smdataproject/run_shell_command.py&lang=python
+@[37-39](pass in the arguments from parameters)
+@[16-23](Ensure subprocess output is logged)
+@[6-8](Use logging module not print)
+
+---
+# For more on the deep learning scripts used see <a href="https://tech.zegami.com/comparing-pre-trained-deep-learning-models-for-feature-extraction-c617da54641" target="_blank">Roger Noble's blog post here</a>
+
+---
+* The output from the feature extraction looks like this:
+
+    id,x,y
+    1975-8398,18.7974,-14.4037
+    2000-7803,3.64917,10.2163
+    1977-5672,6.50948,21.1126
+
+* We need to join this to our original dataset, we can do this with datapackages pipelines
+
+---
+
++++?code=smdataproject/pipeline-spec.yaml&lang=yaml
+
+@[106-125](Tell datapackages-pipelines about the data we just created)
+@[137-150](Join the datasets together)
+@[152-155](Dump out the finished data)
 
