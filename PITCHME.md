@@ -16,7 +16,7 @@
 * Reproducible analyses
 * Flexibility to work with legacy scripts
 * Test-driven data science
-* Package management for data
+* Seamless package management for disparate data sources
 ---
 #### As a developer I additionally want:
 * Architectural guidance
@@ -31,8 +31,9 @@
 * A tool appropriate for the data sizes involved (<1M rows per collection)
 ---
 #### What is Zegami and why are Zegami interested in Frictionless data?
-* Zegami makes visual information more accesible for exploration, search and discovery.
-* Zegami allows data scientists to validate machine learning models visually.
+* Zegami makes visual information more accesible for exploration, search and discovery
+* Zegami allows data scientists to validate machine learning models visually
+* Zegami works on top of any tabular data format
 ---
 #### Who are Zegami's users?
 * People managment - HR and Schools
@@ -149,6 +150,8 @@
 
 @[546](Changed the next link to test pagination)
 
++++
+
 * Let's make that pass
 * Use the [https://github.com/frictionlessdata/tabulator-py/blob/563e3cc9355e456d2da309990ad8b8354b4ce180/tabulator/parsers/json.py](tabulator json parser) as a template.
 
@@ -170,13 +173,13 @@
 
 ---
 
-#### Which fields to we want and what are they called in ijson language
+#### Which fields do we want and what are they called in ijson language?
 
 * Parse the json and print a field list, for example:
 
 +++?code=smdataproject/generate_field_list.py&lang=python
 
-+++?code=data/fieldlist.txt&lang=txt
++++?code=data/fieldlist.yaml&lang=yaml
 
 * Examples:
 

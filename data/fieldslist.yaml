@@ -1,0 +1,1292 @@
+-  data.item.type
+  -  objects
+
+
+-  data.item.id
+  -  co230293
+
+
+-  data.item.attributes.categories.item.museum
+  -  NRM
+
+
+-  data.item.attributes.categories.item.name
+  -  Railway Posters, Notices  & Handbills
+
+
+-  data.item.attributes.categories.item.value
+  -  NRM - Railway Posters, Notices &  Handbills
+
+
+-  data.item.attributes.description.item.date.earliest
+  -  2012
+
+
+-  data.item.attributes.description.item.date.latest
+  -  2012
+
+
+-  data.item.attributes.description.item.date.value
+  -  2012-11-02
+
+
+-  data.item.attributes.description.item.primary
+  -  True
+
+
+-  data.item.attributes.description.item.type
+  -  description
+
+
+-  data.item.attributes.description.item.value
+  -  Poster,  'Penarth, South Wales and other Picturesque resorts on the Bristol Channel via the Taff Val
+
+
+-  data.item.attributes.identifier.item.primary
+  -  True
+
+
+-  data.item.attributes.identifier.item.type
+  -  accession  number
+
+
+-  data.item.attributes.identifier.item.value
+  -  1975-8386
+
+
+-  data.item.attributes.language.item
+  -  eng
+
+
+-  data.item.attributes.legal.legal_status
+  -  permanent  collection
+
+
+-  data.item.attributes.lifecycle.creation.item.date.item.earliest
+  -  1914
+
+
+-  data.item.attributes.lifecycle.creation.item.date.item.latest
+  -  1914
+
+
+-  data.item.attributes.lifecycle.creation.item.date.item.primary
+  -  True
+
+
+-  data.item.attributes.lifecycle.creation.item.date.item.value
+  -  c.1914
+
+
+-  data.item.attributes.lifecycle.creation.item.maker.item.@link.role.item.value
+  -  publisher
+
+
+-  data.item.attributes.lifecycle.creation.item.maker.item.@link.type
+  -  reference
+
+
+-  data.item.attributes.lifecycle.creation.item.maker.item.admin.availabile
+  -  True
+
+
+-  data.item.attributes.lifecycle.creation.item.maker.item.admin.id
+  -  agent-3881
+
+
+-  data.item.attributes.lifecycle.creation.item.maker.item.admin.uid
+  -  cp3881
+
+
+-  data.item.attributes.lifecycle.creation.item.maker.item.admin.uuid
+  -  8693f1d0-5f8e-31c4-ae65-2472286af0dd
+
+
+-  data.item.attributes.lifecycle.creation.item.maker.item.summary_title
+  -  Taff  Vale  Railway
+
+
+-  data.item.attributes.lifecycle.creation.item.maker.item.@link.role.item.value
+  -  maker
+
+
+-  data.item.attributes.lifecycle.creation.item.maker.item.@link.type
+  -  reference
+
+
+-  data.item.attributes.lifecycle.creation.item.maker.item.admin.availabile
+  -  True
+
+
+-  data.item.attributes.lifecycle.creation.item.maker.item.admin.id
+  -  agent-37416
+
+
+-  data.item.attributes.lifecycle.creation.item.maker.item.admin.uid
+  -  cp37416
+
+
+-  data.item.attributes.lifecycle.creation.item.maker.item.admin.uuid
+  -  2ecd2fde-c158-3c67-a812-5c55eac7a154
+
+
+-  data.item.attributes.lifecycle.creation.item.maker.item.summary_title
+  -  Hudson  & Kearns  Limited
+
+
+-  data.item.attributes.lifecycle.creation.item.places.item.@link.role.item.value
+  -  made
+
+
+-  data.item.attributes.lifecycle.creation.item.places.item.@link.type
+  -  reference
+
+
+-  data.item.attributes.lifecycle.creation.item.places.item.admin.availabile
+  -  True
+
+
+-  data.item.attributes.lifecycle.creation.item.places.item.admin.id
+  -  place-113
+
+
+-  data.item.attributes.lifecycle.creation.item.places.item.admin.uid
+  -  cd113
+
+
+-  data.item.attributes.lifecycle.creation.item.places.item.admin.uuid
+  -  570507c0-09d4-3e9a-85da-284abeba102f
+
+
+-  data.item.attributes.lifecycle.creation.item.places.item.summary_title
+  -  London
+
+
+-  data.item.attributes.measurements.dimensions.item.dimension
+  -  height
+
+
+-  data.item.attributes.measurements.dimensions.item.units
+  -  in
+
+
+-  data.item.attributes.measurements.dimensions.item.value
+  -  40
+
+
+-  data.item.attributes.measurements.dimensions.item.dimension
+  -  height
+
+
+-  data.item.attributes.measurements.dimensions.item.units
+  -  mm
+
+
+-  data.item.attributes.measurements.dimensions.item.value
+  -  1016
+
+
+-  data.item.attributes.measurements.dimensions.item.dimension
+  -  width
+
+
+-  data.item.attributes.measurements.dimensions.item.units
+  -  in
+
+
+-  data.item.attributes.measurements.dimensions.item.value
+  -  50
+
+
+-  data.item.attributes.measurements.dimensions.item.dimension
+  -  width
+
+
+-  data.item.attributes.measurements.dimensions.item.units
+  -  mm
+
+
+-  data.item.attributes.measurements.dimensions.item.value
+  -  1270
+
+
+-  data.item.attributes.measurements.display
+  -  :  40 x 50 in.; 1016 x 1270  mm
+
+
+-  data.item.attributes.multimedia.item.@link.type
+  -  reference
+
+
+-  data.item.attributes.multimedia.item.admin.id
+  -  media-115098
+
+
+-  data.item.attributes.multimedia.item.admin.source
+  -  smgi
+
+
+-  data.item.attributes.multimedia.item.admin.uid
+  -  i115098
+
+
+-  data.item.attributes.multimedia.item.admin.uuid
+  -  116a1e0c-3fa3-3028-bcd5-ed603d779bb9
+
+
+-  data.item.attributes.multimedia.item.credit
+  -  Science  Museum Group Collection
+
+
+-  data.item.attributes.multimedia.item.identifier.item.type
+  -  iBase  id
+
+
+-  data.item.attributes.multimedia.item.identifier.item.value
+  -  115098
+
+
+-  data.item.attributes.multimedia.item.priority
+  -  0.5
+
+
+-  data.item.attributes.multimedia.item.processed.large.format
+  -  jpeg
+
+
+-  data.item.attributes.multimedia.item.processed.large.location
+  -  I/2/2/large_DS100797.jpg
+
+
+-  data.item.attributes.multimedia.item.processed.large.location_is_relative
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.large.measurements.dimensions.item.dimension
+  -  height
+
+
+-  data.item.attributes.multimedia.item.processed.large.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.large.measurements.dimensions.item.value
+  -  1536
+
+
+-  data.item.attributes.multimedia.item.processed.large.measurements.dimensions.item.dimension
+  -  width
+
+
+-  data.item.attributes.multimedia.item.processed.large.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.large.measurements.dimensions.item.value
+  -  1139
+
+
+-  data.item.attributes.multimedia.item.processed.large.modified
+  -  1471997316000
+
+
+-  data.item.attributes.multimedia.item.processed.large.resizable
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.large.type
+  -  image
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.format
+  -  jpeg
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.location
+  -  https://smgco-images.s3.amazonaws.com/media/I/2/2/large_thumbnail_DS100797.jpg
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.location_is_relative
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.measurements.dimensions.item.dimension
+  -  height
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.measurements.dimensions.item.value
+  -  431
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.measurements.dimensions.item.dimension
+  -  width
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.measurements.dimensions.item.value
+  -  320
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.modified
+  -  1471997316000
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.resizable
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.type
+  -  image
+
+
+-  data.item.attributes.multimedia.item.processed.medium.format
+  -  jpeg
+
+
+-  data.item.attributes.multimedia.item.processed.medium.location
+  -  I/2/2/medium_DS100797.jpg
+
+
+-  data.item.attributes.multimedia.item.processed.medium.location_is_relative
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.medium.measurements.dimensions.item.dimension
+  -  height
+
+
+-  data.item.attributes.multimedia.item.processed.medium.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.medium.measurements.dimensions.item.value
+  -  777
+
+
+-  data.item.attributes.multimedia.item.processed.medium.measurements.dimensions.item.dimension
+  -  width
+
+
+-  data.item.attributes.multimedia.item.processed.medium.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.medium.measurements.dimensions.item.value
+  -  576
+
+
+-  data.item.attributes.multimedia.item.processed.medium.modified
+  -  1471997316000
+
+
+-  data.item.attributes.multimedia.item.processed.medium.resizable
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.medium.type
+  -  image
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.format
+  -  jpeg
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.location
+  -  I/2/2/medium_thumbnail_DS100797.jpg
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.location_is_relative
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.measurements.dimensions.item.dimension
+  -  height
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.measurements.dimensions.item.value
+  -  259
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.measurements.dimensions.item.dimension
+  -  width
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.measurements.dimensions.item.value
+  -  192
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.modified
+  -  1471997316000
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.resizable
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.type
+  -  image
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.format
+  -  jpeg
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.location
+  -  I/2/2/small_thumbnail_DS100797.jpg
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.location_is_relative
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.measurements.dimensions.item.dimension
+  -  height
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.measurements.dimensions.item.value
+  -  65
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.measurements.dimensions.item.dimension
+  -  width
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.measurements.dimensions.item.value
+  -  48
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.modified
+  -  1471997316000
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.resizable
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.type
+  -  image
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.format
+  -  pyramid  tiff
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.location
+  -  I/2/2/DS100797.ptif
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.location_is_relative
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.measurements.dimensions.item.dimension
+  -  height
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.measurements.dimensions.item.value
+  -  4999
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.measurements.dimensions.item.dimension
+  -  width
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.measurements.dimensions.item.value
+  -  3708
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.modified
+  -  1471997316000
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.resizable
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.type
+  -  image
+
+
+-  data.item.attributes.multimedia.item.publish
+  -  1
+
+
+-  data.item.attributes.multimedia.item.sort
+  -  2015-08-24  02:48:23.0
+
+
+-  data.item.attributes.multimedia.item.source.legal.rights.item.details
+  -  © The Board of Trustees of the Science  Museum
+
+
+-  data.item.attributes.multimedia.item.source.legal.rights.item.usage_terms
+  -  CC-BY-NC-SA 4.0
+
+
+-  data.item.attributes.multimedia.item.source.title.item.type
+  -  caption
+
+
+-  data.item.attributes.multimedia.item.source.title.item.value
+  -  Poster, Tiff Vallery Railway, Penarth,  South Wales,
+
+
+-  data.item.attributes.multimedia.item.source.title.item.type
+  -  main title
+
+
+-  data.item.attributes.multimedia.item.source.title.item.value
+  -  Poster, Tiff Vallery Railway, Penarth, South  Wales,
+
+
+-  data.item.attributes.multimedia.item.type.base
+  -  media
+
+
+-  data.item.attributes.multimedia.item.type.type
+  -  image
+
+
+-  data.item.attributes.name.item.primary
+  -  True
+
+
+-  data.item.attributes.name.item.type
+  -  object  type
+
+
+-  data.item.attributes.name.item.value
+  -  Poster
+
+
+-  data.item.attributes.numbers.NUMBER1
+  -  423
+
+
+-  data.item.attributes.options.option3
+  -  Bartholomew, Ed
+
+
+-  data.item.attributes.summary_title
+  -  Penarth,  South Wales and other Picturesque Resorts on the Bristol Channel via the Taff Vale Railway
+
+
+-  data.item.attributes.title.item.primary
+  -  True
+
+
+-  data.item.attributes.title.item.type
+  -  display title
+
+
+-  data.item.attributes.title.item.value
+  -  Penarth, South Wales and other Picturesque Resorts on  the Bristol Channel via the Taff Vale  Railwa
+
+
+-  data.item.relationships.places.data.item.type
+  -  places
+
+
+-  data.item.relationships.places.data.item.id
+  -  cd3494
+
+
+-  data.item.relationships.terms.data.item.type
+  -  terms
+
+
+-  data.item.relationships.terms.data.item.id
+  -  ct266629
+
+
+-  data.item.relationships.terms.data.item.type
+  -  terms
+
+
+-  data.item.relationships.terms.data.item.id
+  -  ct501989
+
+
+-  data.item.links.self
+  -  https://collection.sciencemuseum.org.uk/objects/co230293/penarth-south-wales-and-other-picturesque-r
+
+
+-  data.item.type
+  -  objects
+
+
+-  data.item.id
+  -  co232132
+
+
+-  data.item.attributes.categories.item.museum
+  -  NRM
+
+
+-  data.item.attributes.categories.item.name
+  -  Railway  Posters, Notices & Handbills
+
+
+-  data.item.attributes.categories.item.value
+  -  NRM - Railway Posters, Notices &  Handbills
+
+
+-  data.item.attributes.description.item.primary
+  -  True
+
+
+-  data.item.attributes.description.item.type
+  -  accession register
+
+
+-  data.item.attributes.description.item.value
+  -  BR poster. Inter-City 125. It's the  Changing Shape of Rail - London to Bristol, Cardiff and Swansea
+
+
+-  data.item.attributes.identifier.item.primary
+  -  True
+
+
+-  data.item.attributes.identifier.item.type
+  -  accession  number
+
+
+-  data.item.attributes.identifier.item.value
+  -  1978-9721
+
+
+-  data.item.attributes.language.item
+  -  eng
+
+
+-  data.item.attributes.legal.legal_status
+  -  permanent  collection
+
+
+-  data.item.attributes.measurements.item_count
+  -  1
+
+
+-  data.item.attributes.multimedia.item.@link.type
+  -  reference
+
+
+-  data.item.attributes.multimedia.item.admin.id
+  -  media-111383
+
+
+-  data.item.attributes.multimedia.item.admin.source
+  -  smgi
+
+
+-  data.item.attributes.multimedia.item.admin.uid
+  -  i111383
+
+
+-  data.item.attributes.multimedia.item.admin.uuid
+  -  08d865cc-938b-3698-9384-e4f53a933028
+
+
+-  data.item.attributes.multimedia.item.credit
+  -  Science  Museum Group Collection
+
+
+-  data.item.attributes.multimedia.item.identifier.item.type
+  -  iBase  id
+
+
+-  data.item.attributes.multimedia.item.identifier.item.value
+  -  111383
+
+
+-  data.item.attributes.multimedia.item.priority
+  -  0.5
+
+
+-  data.item.attributes.multimedia.item.processed.large.format
+  -  jpeg
+
+
+-  data.item.attributes.multimedia.item.processed.large.location
+  -  I/2/2/large_DS091288.jpg
+
+
+-  data.item.attributes.multimedia.item.processed.large.location_is_relative
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.large.measurements.dimensions.item.dimension
+  -  height
+
+
+-  data.item.attributes.multimedia.item.processed.large.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.large.measurements.dimensions.item.value
+  -  1536
+
+
+-  data.item.attributes.multimedia.item.processed.large.measurements.dimensions.item.dimension
+  -  width
+
+
+-  data.item.attributes.multimedia.item.processed.large.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.large.measurements.dimensions.item.value
+  -  1061
+
+
+-  data.item.attributes.multimedia.item.processed.large.modified
+  -  1471993780000
+
+
+-  data.item.attributes.multimedia.item.processed.large.resizable
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.large.type
+  -  image
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.format
+  -  jpeg
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.location
+  -  https://smgco-images.s3.amazonaws.com/media/I/2/2/large_thumbnail_DS091288.jpg
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.location_is_relative
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.measurements.dimensions.item.dimension
+  -  height
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.measurements.dimensions.item.value
+  -  463
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.measurements.dimensions.item.dimension
+  -  width
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.measurements.dimensions.item.value
+  -  320
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.modified
+  -  1471993780000
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.resizable
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.large_thumbnail.type
+  -  image
+
+
+-  data.item.attributes.multimedia.item.processed.medium.format
+  -  jpeg
+
+
+-  data.item.attributes.multimedia.item.processed.medium.location
+  -  I/2/2/medium_DS091288.jpg
+
+
+-  data.item.attributes.multimedia.item.processed.medium.location_is_relative
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.medium.measurements.dimensions.item.dimension
+  -  height
+
+
+-  data.item.attributes.multimedia.item.processed.medium.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.medium.measurements.dimensions.item.value
+  -  834
+
+
+-  data.item.attributes.multimedia.item.processed.medium.measurements.dimensions.item.dimension
+  -  width
+
+
+-  data.item.attributes.multimedia.item.processed.medium.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.medium.measurements.dimensions.item.value
+  -  576
+
+
+-  data.item.attributes.multimedia.item.processed.medium.modified
+  -  1471993780000
+
+
+-  data.item.attributes.multimedia.item.processed.medium.resizable
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.medium.type
+  -  image
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.format
+  -  jpeg
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.location
+  -  I/2/2/medium_thumbnail_DS091288.jpg
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.location_is_relative
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.measurements.dimensions.item.dimension
+  -  height
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.measurements.dimensions.item.value
+  -  278
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.measurements.dimensions.item.dimension
+  -  width
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.measurements.dimensions.item.value
+  -  192
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.modified
+  -  1471993780000
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.resizable
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.medium_thumbnail.type
+  -  image
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.format
+  -  jpeg
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.location
+  -  I/2/2/small_thumbnail_DS091288.jpg
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.location_is_relative
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.measurements.dimensions.item.dimension
+  -  height
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.measurements.dimensions.item.value
+  -  69
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.measurements.dimensions.item.dimension
+  -  width
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.measurements.dimensions.item.value
+  -  48
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.modified
+  -  1471993780000
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.resizable
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.small_thumbnail.type
+  -  image
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.format
+  -  pyramid  tiff
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.location
+  -  I/2/2/DS091288.ptif
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.location_is_relative
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.measurements.dimensions.item.dimension
+  -  height
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.measurements.dimensions.item.value
+  -  5034
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.measurements.dimensions.item.dimension
+  -  width
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.measurements.dimensions.item.units
+  -  pixels
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.measurements.dimensions.item.value
+  -  3477
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.modified
+  -  1471993780000
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.resizable
+  -  True
+
+
+-  data.item.attributes.multimedia.item.processed.zoom.type
+  -  image
+
+
+-  data.item.attributes.multimedia.item.publish
+  -  1
+
+
+-  data.item.attributes.multimedia.item.sort
+  -  2015-08-23  03:31:05.0
+
+
+-  data.item.attributes.multimedia.item.source.legal.rights.item.details
+  -  © The Board of Trustees of the Science  Museum
+
+
+-  data.item.attributes.multimedia.item.source.legal.rights.item.usage_terms
+  -  CC-BY-NC-SA 4.0
+
+
+-  data.item.attributes.multimedia.item.source.title.item.type
+  -  caption
+
+
+-  data.item.attributes.multimedia.item.source.title.item.value
+  -  BR poster. "Inter-City  125
+
+
+-  data.item.attributes.multimedia.item.source.title.item.type
+  -  main title
+
+
+-  data.item.attributes.multimedia.item.source.title.item.value
+  -  BR poster. "Inter-City 125. It's the changing shape of rail" London to Bristol,  Cardiff and  Swanse
+
+
+-  data.item.attributes.multimedia.item.type.base
+  -  media
+
+
+-  data.item.attributes.multimedia.item.type.type
+  -  image
+
+
+-  data.item.attributes.name.item.primary
+  -  True
+
+
+-  data.item.attributes.name.item.value
+  -  poster
+
+
+-  data.item.attributes.numbers.NUMBER1
+  -  423
+
+
+-  data.item.attributes.options.option3
+  -  Bartholomew,  Ed
+
+
+-  data.item.attributes.summary_title
+  -  BR poster (poster)
+
+
+-  data.item.attributes.title.item.primary
+  -  True
+
+
+-  data.item.attributes.title.item.value
+  -  BR  poster
+
+
+-  data.item.relationships.terms.data.item.type
+  -  terms
+
+
+-  data.item.relationships.terms.data.item.id
+  -  ct266629
+
+
+-  data.item.links.self
+  -  https://collection.sciencemuseum.org.uk/objects/co232132/br-poster-poster
+
+
+-  included.item.type
+  -  places
+
+
+-  included.item.id
+  -  cd3494
+
+
+-  included.item.attributes.summary_title
+  -  Bristol  Channel
+
+
+-  included.item.links.self
+  -  https://collection.sciencemuseum.org.uk/places/cd3494
+
+
+-  included.item.type
+  -  terms
+
+
+-  included.item.id
+  -  ct266629
+
+
+-  included.item.attributes.summary_title
+  -  Posters
+
+
+-  included.item.links.self
+  -  https://collection.sciencemuseum.org.uk/terms/ct266629
+
+
+-  included.item.type
+  -  terms
+
+
+-  included.item.id
+  -  ct501989
+
+
+-  included.item.attributes.summary_title
+  -  poster
+
+
+-  included.item.links.self
+  -  https://collection.sciencemuseum.org.uk/terms/ct501989
+
+
+-  included.item.type
+  -  terms
+
+
+-  included.item.id
+  -  ct266629
+
+
+-  included.item.attributes.summary_title
+  -  Posters
+
+
+-  included.item.links.self
+  -  https://collection.sciencemuseum.org.uk/terms/ct266629
+
+
+-  links.self
+  -  https://collection.sciencemuseum.org.uk/search/categories/railway-posters,-notices-&-handbills/image
+
+
+-  links.first
+  -  https://collection.sciencemuseum.org.uk/search/categories/railway-posters,-notices-&-handbills/image
+
+
+-  links.last
+  -  https://collection.sciencemuseum.org.uk/search/categories/railway-posters,-notices-&-handbills/image
+
+
+-  links.prev
+  -  None
+
+
+-  links.next
+  -  https://raw.githubusercontent.com/strets123/frictionless-pres/master/data/smdataset%3Fpage%5Bnumber%
+
+
+-  meta.total_pages
+  -  2
+
+
+-  meta.count.type.all
+  -  4
+
+
+-  meta.count.type.people
+  -  0
+
+
+-  meta.count.type.objects
+  -  4
+
+
+-  meta.count.type.documents
+  -  0
+
+
+-  meta.filters.category.item.value
+  -  Railway Posters, Notices & Handbills
+
+
+-  meta.filters.category.item.count
+  -  4
+
+
+-  meta.filters.maker.item.value
+  -  Hudson & Kearns Limited
+
+
+-  meta.filters.maker.item.count
+  -  1
+
+
+-  meta.filters.maker.item.value
+  -  Taff Vale Railway
+
+
+-  meta.filters.maker.item.count
+  -  1
+
+
+-  meta.filters.maker.item.value
+  -  Waterlow and Sons Limited
+
+
+-  meta.filters.maker.item.count
+  -  1
+
+
+-  meta.filters.object_type.item.value
+  -  notice
+
+
+-  meta.filters.object_type.item.count
+  -  2
+
+
+-  meta.filters.object_type.item.value
+  -  Poster
+
+
+-  meta.filters.object_type.item.count
+  -  1
+
+
+-  meta.filters.object_type.item.value
+  -  poster
+
+
+-  meta.filters.object_type.item.count
+  -  1
+
+
+-  meta.filters.place.item.value
+  -  London
+
+
+-  meta.filters.place.item.count
+  -  1
+
+
+-  meta.filters.image_license.item.value
+  -  Non-Commercial Use
+
+
+-  meta.filters.image_license.item.count
+  -  4
+
+
+-  meta.filters.has_image.item.value
+  -  Has Image
+
+
+-  meta.filters.has_image.item.count
+  -  4
+
+
+-  inProduction
+  -  True
+
+
