@@ -28,6 +28,7 @@
 * Declarative tools that are easy to containerise
 * Streaming data for low memory usage
 * Consistent data formats across varied customers
+* A tool appropriate for the data sizes involved (<1M rows per collection)
 ---
 #### What is Zegami and why are Zegami interested in Frictionless data?
 * Zegami makes visual information more accesible for exploration, search and discovery.
@@ -144,7 +145,7 @@
 
 * Hosted on github because we don't want to patch http or hammer external API
 
-+++?code=data/smdatasetpagenumber0&lang=javascript
++++?code=data/smdatasetpagenumber0&lang=json
 
 @[546](Changed the next link to test pagination)
 
@@ -175,7 +176,7 @@
 
 +++?code=smdataproject/generate_field_list.py&lang=python
 
-+++?code=data/fieldlist.txt
++++?code=data/fieldlist.txt&lang=txt
 
 * Examples:
 
