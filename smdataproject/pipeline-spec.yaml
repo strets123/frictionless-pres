@@ -59,7 +59,8 @@ science-museum-posters:
       parameters:
         resources: ['smjsondata']
         local_image_column: 'image'
-        remote_image-url: 'large_thumbnail_link'
+        remote_image-url: 'large_image_link'
+        base_url: 'http://collection.sciencemuseum.org.uk'
         local_path: 'data/images/'
 
     -

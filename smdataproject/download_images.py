@@ -40,7 +40,7 @@ def image_location(url):
 
 def process_row(row, _1, _2, resource_index, parameters, _):
     if resource_index == 0:
-        url = row[parameters['remote_image-url']]
+        url = parameters["base_url"] + row[parameters['remote_image-url']]
         if url is not None:
             new_location = image_location(
                 url,
