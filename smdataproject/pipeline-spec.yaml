@@ -113,6 +113,7 @@ science-museum-join:
                   'x',
                   'y',
                   ]
+        encoding: 'utf-8'
         schema:
           fields:
           -
@@ -134,6 +135,7 @@ science-museum-join:
       run: stream_remote_resources
       parameters:
         resources: ['tsne','smjsondata2']
+        encoding: 'utf-8'
     -
       run: join
       parameters:
