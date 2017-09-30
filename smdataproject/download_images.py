@@ -40,13 +40,14 @@ def image_location(url):
 
 def process_row(row, _1, _2, resource_index, parameters, _):
     if resource_index == 0:
-        url = parameters["base_url"] + row[parameters['remote_image-url']]
+        url = row[parameters['remote_image-url']]
         if url is not None:
             new_location = image_location(
                 url,
             )
             row[parameters['local_image_column']] = new_location
-            download_image(url, os.path.join(parameters["local_path"], new_location))
+            full_url = parameters["base_url"] + url
+            download_image(full_url, os.path.join(parameters["local_path"], new_location))
     return row
 
 
