@@ -29,7 +29,7 @@ class NormalisingJSONAPIParser(Parser):
         self.__property = property
         self.__force_parse = force_parse
         self.__extended_rows = None
-        self.__encoding = None
+        self.__encoding = 'utf-8'
         self.__chars = None
         self.__jsonpath_schema = jsonpath_schema
         self.__next_url = None
