@@ -38,10 +38,11 @@ class NormalisingJSONAPIParser(Parser):
     def closed(self):
         return self.__chars is None or self.__chars.closed
 
-    def open(self, source, encoding=None):
+    def open(self, source, encoding='utf-8'):
         self.close()
-        self.__chars = self.__loader.load(source, encoding=encoding)
         self.__encoding = getattr(self.__chars, 'encoding', encoding)
+        self.__chars = self.__loader.load(source, encoding=encoding)
+
         if self.__encoding:
             self.__encoding.lower()
         self.reset()
@@ -131,7 +132,8 @@ class NormalisingJSONAPIParser(Parser):
             if self.__next_url is not None:
                 time.sleep(5)
                 self.__chars = self.__loader.load(self.__next_url, encoding='utf-8')
-                self.__chars = self.__chars.decode("utf-8", "ignore").encode("utf-8")
+                import io
+
                 self.__chars.seek(0)
             else:
                 break
