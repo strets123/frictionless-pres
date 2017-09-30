@@ -6,6 +6,7 @@ import requests
 import os
 import base64
 import shutil
+import urllib3
 
 
 def modify_datapackage(datapackage, parameters, _):
@@ -24,11 +25,11 @@ def download_image(url, path):
     if not os.path.exists(path):
         if url:
             try:
-                resp = requests.get(url, stream=True, timeout=0.2)
+                resp = requests.get(url, stream=True, timeout=5)
                 with open(path, 'wb') as f:
                     resp.raw.decode_content = True
                     shutil.copyfileobj(resp.raw, f)
-            except requests.exceptions.Timeout:
+            except urllib3.exceptions.ReadTimeoutError:
                 pass
 
 
