@@ -121,6 +121,7 @@
                     row  # [value1, value2, ..]
 
 * The (custom) parser used is set by changing the format parameter and passing in a class
+
     with Stream(
         "http://source_uri", 
         custom_parsers={'json-api': CustomParser}
@@ -153,7 +154,7 @@
 +++
 
 * Let's make that pass
-* Use the [https://github.com/frictionlessdata/tabulator-py/blob/563e3cc9355e456d2da309990ad8b8354b4ce180/tabulator/parsers/json.py](tabulator json parser) as a template.
+* Use the <a href="https://github.com/frictionlessdata/tabulator-py/blob/563e3cc9355e456d2da309990ad8b8354b4ce180/tabulator/parsers/json.py" target="_blank">tabulator json parser</a> as a template.
 
 +++?code=smdataproject/jsonapi_parser.py&lang=python
 
@@ -220,7 +221,7 @@
 
 ---
 
-* Now need to download images in a piepline after we get the data
+* Now need to download images in a pipeline after we get the data
 * Need a pipeline spec yaml file
 
 +++?code=smdataproject/pipeline-spec.yaml&lang=yaml
