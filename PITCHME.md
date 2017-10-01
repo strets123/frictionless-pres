@@ -1,15 +1,9 @@
 ---
 
 #### Frictionless Data, Frictionless Development
-
-
-
 ---
-
 #### What is data / document management about?
-
 ![Cloudstuff](cloud.jpg)
-
 ---
 #### Means many things to many people
 ---
