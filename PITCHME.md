@@ -59,14 +59,7 @@
 ---
 * The community is great, pull requests are merged quickly
 * When you are struggling with a data model for a task or a schema, frictionless data's standards provide guidance
-* Frictionless data does for me as a data engineer what djangopackages does for me as a web developer
-
 ---
-#### Architecture examples:
-* <a href="http://frictionlessdata.io/tools/#mira" target="_blank">Mira - A web api for csv datasets</a>
-* <a href="https://github.com/frictionlessdata/datapackage-pipelines#join" target="_blank">How to model a join in a database </a>
-
-
 #### Tableschema makes data transfer easy:
 * <a href="https://github.com/frictionlessdata/tableschema-bigquery-py" target="_blank">Store in BigQuery</a>
 * <a href="https://github.com/frictionlessdata/tableschema-pandas-py" target="_blank">Use in Pandas</a>
@@ -81,6 +74,13 @@
 * Work with <a href="https://github.com/frictionlessdata/tableschema-rb"  target="_blank">Ruby</a>
 * Coming soon: Clojure and R
 ---
+#### Data repository owners' tools
+* Repository management with <a href="https://ckan.org/features/" target="_blank">CKAN</a>
+* Update apis for the data from data packages with <a href="http://okfnlabs.org/blog/2014/09/11/data-api-for-data-packages-with-dpm-and-ckan.html" target="_blank">CKAN datastore</a>
+* Data package distribution with <a href="http://okfnlabs.org/projects/dpm/" target="_blank">dpm</a>
+
+---
+
 #### OK, enough chat, let's build an end-to-end tool using frictionless data
 
 ---
@@ -130,7 +130,10 @@
             for row in stream:
                     row  # [value1, value2, ..]
 
+---
+
 * The (custom) parser used is set by changing the format parameter and passing in a class
+
 
     with Stream(
         "http://source_uri", 
@@ -321,3 +324,9 @@ We install the dependencies like this:
 * Tabulator has a great interface and is really flexible and well tested
 * The datapackage pipelines spec is great, as is the CLI
 * We have many ideas for how we would like to improve the underlying codebase and would love for others to join us working on it
+---
+# Acknowledgments
+
+* Thanks to the team at Frictionless data / OKFN
+* To the team at Zegami
+* To everyone for listening
