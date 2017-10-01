@@ -2,6 +2,8 @@
 
 #### Frictionless Data, Frictionless Development
 
+
+
 ---
 
 #### What is data / document management about?
@@ -66,10 +68,24 @@
 * Frictionless data does for me as a data engineer what djangopackages does for me as a web developer
 
 ---
-#### For example:
+#### Architecture examples:
 * <a href="http://frictionlessdata.io/tools/#mira" target="_blank">Mira - A web api for csv datasets</a>
 * <a href="https://github.com/frictionlessdata/datapackage-pipelines#join" target="_blank">How to model a join in a database </a>
 
+
+#### Tableschema makes data transfer easy:
+* <a href="https://github.com/frictionlessdata/tableschema-bigquery-py" target="_blank">Store in BigQuery</a>
+* <a href="https://github.com/frictionlessdata/tableschema-pandas-py" target="_blank">Use in Pandas</a>
+* <a href="https://github.com/frictionlessdata/tableschema-sql-py" target="_blank">Convert to SQL with tableschema sql</a>
+* <a href="https://github.com/frictionlessdata/tableschema-elasticsearch-py" target="_blank">Create an elasticsearch index with tableschema-elasticsearch-py</a>
+* <a href="https://github.com/frictionlessdata/tableschema-spss-py" target="_blank">Pull data from SPSS</a>
+* Coming soon - go contribute : <a href="https://github.com/frictionlessdata/tableschema-ui" target="_blank">Edit your schemata with tableschema-ui</a>
+---
+####  Tableschema lets you switch languages
+* Understand your data in <a href="https://github.com/frictionlessdata/tableschema-ui" target="_blank">Java
+* Switch to <a href="https://github.com/frictionlessdata/tableschema-go"  target="_blank">Golang for a project
+* Work with <a href="https://github.com/frictionlessdata/tableschema-rb"  target="_blank">Ruby</a>
+* Coming soon: Clojure and R
 ---
 #### OK, enough chat, let's build an end-to-end tool using frictionless data
 
@@ -242,6 +258,12 @@
 * This time we need to edit the data and add an image field
 +++?code=smdataproject/download_images.py&lang=python
 @[11-20](Initially we update the datapackage to include a local field name)
+---
+# OK so let's run our first pipeline
+
+We install the dependencies like this:
+
+
 
 ---
 # Now for the deep learning step using pandas, tensorflow and keras
@@ -289,6 +311,19 @@
 +++?code=smdataproject/pipeline-spec.yaml&lang=yaml
 
 @[106-125](Tell datapackages-pipelines about the data we just created)
-@[137-150](Join the datasets together)
+@[137-150](Join the datasets together - can be either a format string or a list)
 @[152-155](Dump out the finished data)
 
+---
+
+# And this is what the data looks like in Zegami
+
+---
+
+# Conclusions from the railway poster project
+* The training data is from resnet - need a network trained on fonts and layout instead to study poster design
+---
+# Conclusions after using frictionless data projects
+* Tabulator has a great interface and is really flexible and well tested
+* The datapackage pipelines spec is great, as is the CLI
+* We have many ideas for how we would like to improve the underlying codebase and would love for others to join us working on it

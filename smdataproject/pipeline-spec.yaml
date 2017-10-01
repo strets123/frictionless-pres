@@ -11,8 +11,8 @@ science-museum-posters:
     -
       run: add_resource
       parameters:
-        url: 'http://collection.sciencemuseum.org.uk/search/images/categories/railway%20posters,%20notices%20&%20handbills?page[number]=0'
-#        url: 'https://raw.githubusercontent.com/strets123/frictionless-pres/master/data/smdataset%3Fpage%5Bnumber%5D%3D0'
+        #url: 'http://collection.sciencemuseum.org.uk/search/images/categories/railway%20posters,%20notices%20&%20handbills?page[number]=0'
+        url: 'https://raw.githubusercontent.com/strets123/frictionless-pres/master/data/smdataset%3Fpage%5Bnumber%5D%3D0'
         name: 'smjsondata'
         property: 'data'
         format: 'json-api'
@@ -142,10 +142,10 @@ science-museum-join:
       parameters:
         target:
           name: 'smjsondata2'
-          key: 'id'
+          key: '{id}'
         source:
           name: 'tsne'
-          key: 'id'
+          key: '{id}'
         fields:
           tsne_x:
             name: 'x'
