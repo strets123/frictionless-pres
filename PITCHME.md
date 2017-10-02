@@ -9,15 +9,15 @@
 ---
 
 #### As a data scientist I want:
-* Reproducible analyses
+* Reproducible analyses - self documenting data retrieval, stored in version control
 * Flexibility to work with legacy scripts
 * Test-driven data science
 * Seamless package management for disparate data sources
 ---
 #### As a developer I additionally want:
-* Architectural guidance
-* Polygot persistence
-* Ability to swap out tools
+* Architectural guidance from the tools I use
+* Ability to swap out programming languages and databases
+* To store extendable metadata about columns in the data so it is compatible in many places
 * Single point of responsibility for each module
 ---
 #### As an ops person I also want
@@ -36,6 +36,8 @@
 * Data scientists
 * Museum curators
 * Scientists
+* Sports coaches and scouts
+* Facilities and financial asset managers
 ---
 #### As an evangelist for Zegami I want:
 * Interoperability with customer datastores
@@ -43,9 +45,9 @@
 * Standards that work for both end and CLI tools
 * CLI usability for non-coders
 
+---
 
-#### OK, I learn best by doing, so let's build an end-to-end tool using frictionless data
-
+#### OK, I learn best by doing, so let's build an end-to-end tool using frictionless data's tools
 
 ---
 #### Imaginary Brief
