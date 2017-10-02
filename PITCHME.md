@@ -113,6 +113,7 @@
 
 * Let's write a test, source code [https://github.com/strets123/frictionless-pres/blob/master/smdataproject/tests/test_parser.py](here).
 
+
     def test_stream(self):
         """
         Given 2 remote pages of a JSON-API resource
