@@ -160,15 +160,62 @@
 
 * Let's make that pass
 * Use the <a href="https://github.com/frictionlessdata/tabulator-py/blob/563e3cc9355e456d2da309990ad8b8354b4ce180/tabulator/parsers/json.py" target="_blank">tabulator json parser</a> as a template.
+* We need to change the way that the iterator of `tabulator.Stream` yields results
+* This is done by editing the `_iter_extended_rows` function
+---
+* Original function looks like this:
 
-+++?code=smdataproject/jsonapi_parser.py&lang=python
 
-@[68](Add a pagination loop)
-@[73](Set the startng row number on each iteration)
-@[83-89](Get the next page url and load in data for next loop)
-@[90-91](Break out of the loop if no next link)
+    def __iter_extended_rows(self):
+        path = 'item'
+        if self.__property is not None:
+            path = '%s.item' % self.__property
+        items = ijson.items(self.__chars, path)
+        for row_number, item in enumerate(items, start=1):
+            if isinstance(item, (tuple, list)):
+                yield (row_number, None, list(item))
+            elif isinstance(item, dict):
+                keys = []
+                values = []
+                for key in sorted(item.keys()):
+                    keys.append(key)
+                    values.append(item[key])
+                yield (row_number, list(keys), list(values))
+            else:
+                if not self.__force_parse:
+                    message = 'JSON item has to be list or dict'
+                    raise exceptions.SourceError(message)
+                yield (row_number, None, [])
+
 
 ---
+* Add a pagination loop
+
+
+        start_rownum = 1
+        while True:
+            path = 'item'
+            if self.__property is not None:
+                path = '%s.item' % self.__property
+
+
+---
+
+* Get the next page of data and continue looping
+
+            json_obj = ijson.items(self.__chars,'')
+            for k in json_obj:
+                next_url = k["links"]["next"]
+                break                                 # Get the next url
+            if next_url is not None:
+                self.__chars = self.__loader.load(    # Get more data
+                next_url, 
+                encoding=self.__encoding)
+                self.__chars.seek(0)
+            else:
+                break # Break out of the loop if no next link
+
+
 
 #### Make the parser support normalisation
 
@@ -183,11 +230,9 @@
 
 * Parse the json and print a field list, for example:
 
-+++?code=smdataproject/generate_field_list.py&lang=python
+---?code=smdataproject/generate_field_list.py&lang=python
 
-+++?code=data/fieldlist.yaml&lang=yaml
-
-+++
+---?code=data/fieldlist.yaml&lang=yaml
 
 * Examples:
 @[5-6](The id)
@@ -361,6 +406,11 @@ We install the dependencies like this:
 # Acknowledgments
 
 * Thanks to the team at Frictionless data / OKFN
+* Thanks to the Science Museum and National Railways Museum for making the data available
 * Thanks to the team at <a href="http://okfnlabs.org/blog/2017/02/27/datapackage-pipelines.html" target="_blank">Openspending for creating the datapackage pipelines project</a>
-* To the team at Zegami
+* To the team at Zegami (we are hiring)
 * To everyone for listening
+
+---
+
+# Questions
