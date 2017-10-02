@@ -45,14 +45,7 @@
 ---
 
 * Frictionless data provides cross-platform ways of describing and using datasets
-    * Data package management
-    * Building blocks for data
-        * import
-        * validation
-        * processing
-        * export
-        * display
-        * apis
+
 ---
 #### <a href="http://frictionlessdata.io/tools/" target="_blank">frictionlessdata.io/tools/</a>
 
@@ -76,6 +69,7 @@
 ---
 #### Data repository owners' tools
 * Repository management with <a href="https://ckan.org/features/" target="_blank">CKAN</a>
+* Lighter weight repository managment with <a href="https://github.com/datahuborg/datahub" target="_blank">MIT's datahub</a>
 * Update apis for the data from data packages with <a href="http://okfnlabs.org/blog/2014/09/11/data-api-for-data-packages-with-dpm-and-ckan.html" target="_blank">CKAN datastore</a>
 * Data package distribution with <a href="http://okfnlabs.org/projects/dpm/" target="_blank">dpm</a>
 
