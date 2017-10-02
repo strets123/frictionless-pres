@@ -109,27 +109,53 @@
         stream.read()
 ---
 
-#### What do we want our custom parser to do? 
+##### What do we want our custom parser to do? 
 
-* Let's write a test...
+* Let's write a test, source code [https://github.com/strets123/frictionless-pres/blob/master/smdataproject/tests/test_parser.py](here).
 
-+++?code=smdataproject/tests/test_parser.py&lang=python
+    def test_stream(self):
+        """
+        Given 2 remote pages of a JSON-API resource
+        When I parse it with tabulator
+        Then I get back a single item list with the full json in it
+        """
+        url=("https://raw.githubusercontent.com/strets123"
+        "/frictionless-pres/master/data/"
+        "smdataset%3Fpage%5Bnumber%5D%3D0") # Test data url
 
-@[17](Test data url (see below))
-@[20-21](Pass in our custom parser) 
-@[25-29](Check we get a single item json out in the correct format)
+---
+##### Pass in our custom parser   
+        with tabulator.Stream(
+            url,
+            format="json-api", 
+            custom_parsers={     
+                "json-api": jsonapi_parser.JSONAPIParser
+                },
+            property='data',
+            ) as stream:
+            
+---          
+##### Check we get a single item json out in the correct format
 
-+++
+            for index, item in enumerate(stream):
+                self.assertTrue(isinstance(item[0], dict))
+                self.assertIn("attributes", item[0])
+                self.assertIn("id", item[0])
+                self.assertIn("links", item[0])
+                self.assertEqual(len(item), 1)
+
+
+---
 
 #### Test data
 
 * Hosted on github because we don't want to patch http or hammer external API
 
-+++?code=data/smdatasetpagenumber0&lang=json
+---?code=data/smdatasetpagenumber0&lang=json
 
 @[546](Changed the next link to test pagination)
 
-+++
+---
 
 * Let's make that pass
 * Use the <a href="https://github.com/frictionlessdata/tabulator-py/blob/563e3cc9355e456d2da309990ad8b8354b4ce180/tabulator/parsers/json.py" target="_blank">tabulator json parser</a> as a template.
