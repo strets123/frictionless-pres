@@ -42,40 +42,10 @@
 * To do the right thing - open source, open standards
 * Standards that work for both end and CLI tools
 * CLI usability for non-coders
----
 
-* Frictionless data provides cross-platform ways of describing and using datasets
 
----
-#### <a href="http://frictionlessdata.io/tools/" target="_blank">frictionlessdata.io/tools/</a>
+#### OK, I learn best by doing, so let's build an end-to-end tool using frictionless data
 
----
-* The community is great, pull requests are merged quickly
-* When you are struggling with a data model for a task or a schema, frictionless data's standards provide guidance
----
-#### Tableschema makes data transfer easy:
-* <a href="https://github.com/frictionlessdata/tableschema-bigquery-py" target="_blank">Store in BigQuery</a>
-* <a href="https://github.com/frictionlessdata/tableschema-pandas-py" target="_blank">Use in Pandas</a>
-* <a href="https://github.com/frictionlessdata/tableschema-sql-py" target="_blank">Convert to SQL with tableschema sql</a>
-* <a href="https://github.com/frictionlessdata/tableschema-elasticsearch-py" target="_blank">Create an elasticsearch index with tableschema-elasticsearch-py</a>
-* <a href="https://github.com/frictionlessdata/tableschema-spss-py" target="_blank">Pull data from SPSS</a>
-* Coming soon - go contribute : <a href="https://github.com/frictionlessdata/tableschema-ui" target="_blank">Edit your schemata with tableschema-ui</a>
----
-####  Tableschema lets you switch languages
-* Understand your data in <a href="https://github.com/frictionlessdata/tableschema-ui" target="_blank">Java
-* Switch to <a href="https://github.com/frictionlessdata/tableschema-go"  target="_blank">Golang for a project
-* Work with <a href="https://github.com/frictionlessdata/tableschema-rb"  target="_blank">Ruby</a>
-* Coming soon: Clojure and R
----
-#### Data repository owners' tools
-* Repository management with <a href="https://ckan.org/features/" target="_blank">CKAN</a>
-* Lighter weight repository managment with <a href="https://github.com/datahuborg/datahub" target="_blank">MIT's datahub</a>
-* Update apis for the data from data packages with <a href="http://okfnlabs.org/blog/2014/09/11/data-api-for-data-packages-with-dpm-and-ckan.html" target="_blank">CKAN datastore</a>
-* Data package distribution with <a href="http://okfnlabs.org/projects/dpm/" target="_blank">dpm</a>
-
----
-
-#### OK, enough chat, let's build an end-to-end tool using frictionless data
 
 ---
 #### Imaginary Brief
@@ -88,7 +58,6 @@
 * Download and preprocess data and images
 * Run some deep learning to find patterns
 * Present the results in a ui allowing update of tags
-* Make the updates available again in a standardised format
 
 ---
 
@@ -311,6 +280,7 @@ We install the dependencies like this:
 
 ---
 
+
 # Conclusions from the railway poster project
 * The training data is from resnet - need a network trained on fonts and layout instead to study poster design
 ---
@@ -319,8 +289,49 @@ We install the dependencies like this:
 * The datapackage pipelines spec is great, as is the CLI
 * We have many ideas for how we would like to improve the underlying codebase and would love for others to join us working on it
 ---
+#### OK so what else can the frictionless data tools do for me?
+
+---
+
+#### <a href="http://frictionlessdata.io/tools/" target="_blank">frictionlessdata.io/tools/</a>
+
+* Lightweight standards and tooling to make it effortless to get, share, and validate data
+
+
+---
+#### Tableschema makes data transfer easy:
+* <a href="https://github.com/frictionlessdata/tableschema-bigquery-py" target="_blank">Store in BigQuery</a>
+* <a href="https://github.com/frictionlessdata/tableschema-pandas-py" target="_blank">Use in Pandas</a>
+* <a href="https://github.com/frictionlessdata/tableschema-sql-py" target="_blank">Convert to SQL with tableschema sql</a>
+* <a href="https://github.com/frictionlessdata/tableschema-elasticsearch-py" target="_blank">Create an elasticsearch index with tableschema-elasticsearch-py</a>
+* <a href="https://github.com/frictionlessdata/tableschema-spss-py" target="_blank">Pull data from SPSS</a>
+* Coming soon - go contribute : <a href="https://github.com/frictionlessdata/tableschema-ui" target="_blank">Edit your schemata with tableschema-ui</a>
+---
+####  Tableschema lets you switch languages
+* Understand your data in <a href="https://github.com/frictionlessdata/tableschema-ui" target="_blank">Java
+* Switch to <a href="https://github.com/frictionlessdata/tableschema-go"  target="_blank">Golang for a project
+* Work with <a href="https://github.com/frictionlessdata/tableschema-rb"  target="_blank">Ruby</a>
+* Coming soon: Clojure and R
+---
+#### Using the tableschema standard allows use of many repository owners' tools
+* Repository management with <a href="https://ckan.org/features/" target="_blank">CKAN</a>
+* Lighter weight repository managment with <a href="https://github.com/datahuborg/datahub" target="_blank">MIT's datahub</a>
+* Update apis for the data from data packages with <a href="http://okfnlabs.org/blog/2014/09/11/data-api-for-data-packages-with-dpm-and-ckan.html" target="_blank">CKAN datastore</a>
+* Data package distribution with <a href="http://okfnlabs.org/projects/dpm/" target="_blank">dpm</a>
+
+---
+# Summary
+
+* Frictionless data and OKFN have created some time-saving tools and standards
+* The community is great, pull requests are merged quickly
+* When you are struggling with a data model for a task or a schema, frictionless data's standards provide guidance
+* Tools tend to be well balanced in terms to who has influenced their development
+
+---
+
 # Acknowledgments
 
 * Thanks to the team at Frictionless data / OKFN
+* Thanks to the team at <a href="http://okfnlabs.org/blog/2017/02/27/datapackage-pipelines.html" target="_blank">Openspending for creating the datapackage pipelines project</a>
 * To the team at Zegami
 * To everyone for listening
