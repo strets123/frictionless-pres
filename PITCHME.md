@@ -111,7 +111,7 @@
 
 ##### What do we want our custom parser to do? 
 
-* Let's write a test, source code [https://github.com/strets123/frictionless-pres/blob/master/smdataproject/tests/test_parser.py](here).
+* Let's write a test, source code [here](https://github.com/strets123/frictionless-pres/blob/master/smdataproject/tests/test_parser.py).
 
 
     def test_stream(self):
