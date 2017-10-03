@@ -24,6 +24,10 @@
 * Consistent data formats across varied customers
 ---
 #### What is Zegami and why are Zegami interested in Frictionless data?
+---
+
+![Zegami](assets/Pic-1.jpg)
+
 
 ---
 
