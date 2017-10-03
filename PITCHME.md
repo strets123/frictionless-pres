@@ -287,7 +287,7 @@ I use the datapackage-pipelines cli (dpp) to view the pipelines (in smdataprojec
 ```
 
 ---
-Now for the deep learning step using pandas, tensorflow and keras with the resnet training dataset.
+#### Now for the deep learning step using pandas, tensorflow and keras
 
 * Subrepo pandas code uses `read_csv` which is not streaming
 * Create new pipelines which depend on the initial one
