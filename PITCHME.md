@@ -13,9 +13,9 @@
 * New tools that work with legacy scripts
 * Test-driven data science
 ---
-#### As a developer I want:
-* Architectural guidance e.g. get more out of python iterators
-* Ability to swap out programming languages and databases
+#### As a developer I want to:
+* Get more out of python iterators
+* Ability to swap out languages and databases
 * Single point of responsibility for each module
 ---
 #### As an ops person I want
@@ -353,6 +353,7 @@ Now for the deep learning step using pandas, tensorflow and keras with the resne
 ---
 * The training data is from resnet - need a network trained on fonts and layout instead to study poster design
 * Simply splitting the images by date in Zegami gives some interesting results
+
 ---
 #### Conclusions after using frictionless data projects
 
