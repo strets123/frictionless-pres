@@ -57,9 +57,10 @@
 
 #### OK, I learn best by doing
 
+---
+#### Let's test out these Frictionless Data tools
 
 ---
-#### Imaginary Brief to test out Frictionless Data tools
 
 * Research how styles of railway posters from the National Railway Museum collection have changed over time
 
@@ -229,12 +230,11 @@
 
 ---?code=data/fieldlist.yaml&lang=yaml
 
-* Examples:
 @[5-6](The id)
 @[561-562](The title/name of the poster)
 
 ---
-#### I then created a [test](https://github.com/strets123/frictionless-pres/blob/master/smdataproject/tests/test_normalising_parser.py) and a [parser](https://github.com/strets123/frictionless-pres/blob/master/smdataproject/normalising_parser.py) which can accept ijson paths
+* I then created a [test](https://github.com/strets123/frictionless-pres/blob/master/smdataproject/tests/test_normalising_parser.py) and a [parser](https://github.com/strets123/frictionless-pres/blob/master/smdataproject/normalising_parser.py) which can accept ijson paths
 
 ---
 #### Let's run this parser with datapackage-pipelines
@@ -254,7 +254,7 @@
 * Simple custom job stream_remote_resources_custom
 
 ---?code=smdataproject/stream_remote_resources_custom.py&lang=python
-@[3](Monkey-path the custom module)
+@[3](Need to contribute a better way to do this...)
 
 ---
 * Another custom job for download_images
@@ -297,10 +297,10 @@ I use the datapackage-pipelines cli (dpp) to view the pipelines (in smdataprojec
 ---
 To run the pipelines I use for example
 
-
+```bash
     dpp run ./science-museum-posters
-
-
+```
+    
 ---
 Now for the deep learning step using pandas, tensorflow and keras with the resnet training dataset.
 
