@@ -25,7 +25,7 @@
 --- 
 #### What is Zegami and why are Zegami interested in Frictionless data?
 ---
----?image=assets/pic1.png?size=50%
+---?image=assets/pic1.png
 ---?image=assets/Pic-2.jpg
 ---?image=assets/Pic-3.jpg
 ---?image=assets/Pic-5.jpg
