@@ -26,18 +26,18 @@
 #### What is Zegami and why are Zegami interested in Frictionless data?
 ---
 
-![Zegami](assets/Pic-1.jpg)
+---?image=assets/Pic-1.jpg
 
 
 ---
 
-![Zegami](assets/Pic-2.jpg)
+---?image=assets/Pic-2.jpg
 
 ---
-![Zegami](assets/Pic-3.jpg)
+---?image=assets/Pic-3.jpg
 
 ---
-![Zegami](assets/Pic-5.jpg)
+---?image=assets/Pic-5.jpg
 
 ---
 
