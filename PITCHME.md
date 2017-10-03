@@ -48,6 +48,12 @@
 * To do the right thing - open source, open standards
 * Standards that work for both end and CLI tools
 * CLI usability for non-coders
+---
+#### What is Frictionless Data?
+
+* Lightweight standards and tooling to make it effortless to get, share, and validate data
+
+![Frictionless Data](http://frictionlessdata.io/img/data-package-decouple.png)
 
 ---
 
@@ -371,8 +377,6 @@ Now for the deep learning step using pandas, tensorflow and keras with the resne
 ---
 
 #### <a href="http://frictionlessdata.io/tools/" target="_blank">frictionlessdata.io/tools/</a>
-
-* Lightweight standards and tooling to make it effortless to get, share, and validate data
 
 
 ---
