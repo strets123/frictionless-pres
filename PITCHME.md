@@ -249,7 +249,8 @@
 ---?code=smdataproject/download_images.py&lang=python
 @[13-16](Initially we update the datapackage to include a local field name)
 @[17-20](Create a folder (need to add images to data package really))
-@[42-56](Pass functions in to the process wrapper)
+@[41-53](Add a function to process a row at a time)
+@[55-57](Pass our functions to `datapackage_pipelines.process`)
 
 ---
 #### OK so let's run our first pipeline
