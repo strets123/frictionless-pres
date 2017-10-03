@@ -9,22 +9,19 @@
 ---
 
 #### As a data scientist I want:
-* Reproducible analyses - self documenting data retrieval, stored in version control
-* Flexibility to work with legacy scripts
+* Reproducible analyses 
+* New tools that work with legacy scripts
 * Test-driven data science
-* Seamless package management for disparate data sources
 ---
 #### As a developer I want:
-* Architectural guidance from the tools I use, e.g. get more out of python iterators
+* Architectural guidance e.g. get more out of python iterators
 * Ability to swap out programming languages and databases
-* To store extendable metadata about columns in the data so it is compatible in many places
 * Single point of responsibility for each module
 ---
 #### As an ops person I want
 * Declarative tools that are easy to containerise
 * Streaming data for low memory usage
 * Consistent data formats across varied customers
-* A tool appropriate for the data sizes involved (<1M rows per collection)
 ---
 #### What is Zegami and why are Zegami interested in Frictionless data?
 
@@ -46,8 +43,7 @@
 #### As an evangelist for Zegami I want:
 * Interoperability with customer datastores
 * To do the right thing - open source, open standards
-* Standards that work for both end and CLI tools
-* CLI usability for non-coders
+* Standards that work for both front-end and CLI tools
 ---
 #### What is Frictionless Data?
 
@@ -217,8 +213,7 @@
 
 * We would like to convert the json to an array of the desired fields
 * tabulator.Stream is already using ijson parser 
-* This has support for iterating keys in json
-* We can pass in a schema which encodes the exact json normalisation desired
+* We can use this to walk through the json structure and flatten the keys
 
 ---
 
@@ -295,16 +290,16 @@ I use the datapackage-pipelines cli (dpp) to view the pipelines (in smdataprojec
         Missing dependency: Failed to find a pipeline dependency
 ```
 ---
-To run the pipelines I use for example
+* To run the pipelines I use:
 
 ```bash
     dpp run ./science-museum-posters
 ```
-    
+
 ---
 Now for the deep learning step using pandas, tensorflow and keras with the resnet training dataset.
 
-* Pandas code uses `read_csv` which is not streaming
+* Subrepo pandas code uses `read_csv` which is not streaming
 * Create new pipelines which depend on the initial one
 
 
@@ -420,9 +415,9 @@ Now for the deep learning step using pandas, tensorflow and keras with the resne
 
 ---
 
-# Questions
+#### Questions
 
-
+* Sign up for beta access to Zegami cloud and API [here](https://zegami.com/cloud/)
 
 
 
