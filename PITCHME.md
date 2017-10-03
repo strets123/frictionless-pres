@@ -36,7 +36,7 @@
 ![Zegami](assets/Pic-3.jpg)
 
 ---
-![Zegami](assets/Pic-5.jpg)
+![Zegami](assets/Pic-6.jpg)
 
 ---
 
