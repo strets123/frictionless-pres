@@ -96,25 +96,21 @@
 ---
 #### Interface
 
-    from tabulator import Stream
-
-    with Stream('http://my-url/path.csv', headers=1) as stream:
-        stream.headers # [header1, header2, ..]
-            for row in stream:
-                    row  # [value1, value2, ..]
-
----
-
 * The (custom) parser used is set by changing the format parameter and passing in a class
 
-
+    
+    from tabulator import Stream
+    
+    ...
+    
     with Stream(
         "http://source_uri", 
         custom_parsers={'json-api': CustomParser}
         format="json-api"
         ) as stream:
         
-        stream.read()
+        for array in stream.read():
+            process(array)
 ---
 
 ##### What do we want our custom parser to do? 
@@ -123,17 +119,9 @@
 
 
     def test_stream(self):
-        """
-        Given 2 remote pages of a JSON-API resource
-        When I parse it with tabulator
-        Then I get back a single item list with the full json in it
-        """
         url=("https://raw.githubusercontent.com/strets123"
         "/frictionless-pres/master/data/"
-        "smdataset%3Fpage%5Bnumber%5D%3D0") # Test data url
-
----
-##### Pass in our custom parser   
+        "smdataset%3Fpage%5Bnumber%5D%3D0") # Test data url    
         with tabulator.Stream(
             url,
             format="json-api", 
