@@ -29,7 +29,7 @@
 ---?image=assets/Pic-2.jpg
 ---?image=assets/Pic-3.jpg
 ---?image=assets/Pic-5.jpg&size=auto 80%
----?image=assets/Pic-11.jpg
+---?image=assets/Pic-11.jpg&size=auto 80%
 
 ---
 #### As an evangelist for Zegami I want:
