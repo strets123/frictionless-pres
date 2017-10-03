@@ -28,7 +28,7 @@
 ---?image=assets/pic1.png
 ---?image=assets/Pic-2.jpg
 ---?image=assets/Pic-3.jpg
----?image=assets/Pic-5.jpg?size=auto 80%
+---?image=assets/Pic-5.jpg&size=auto 80%
 ---?image=assets/Pic-11.jpg
 
 ---
