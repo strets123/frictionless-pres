@@ -30,17 +30,17 @@
 
 ---
 
-![Zegami](assets/Pic2.jpg)
+![Zegami](assets/Pic-2.jpg)
 
 ---
-![Zegami](assets/Pic3.jpg)
+![Zegami](assets/Pic-3.jpg)
 
 ---
-![Zegami](assets/Pic5.jpg)
+![Zegami](assets/Pic-5.jpg)
 
 ---
 
-![Zegami](assets/Pic11.jpg)
+![Zegami](assets/Pic-11.jpg)
 
 ---
 #### As an evangelist for Zegami I want:
@@ -50,8 +50,6 @@
 * CLI usability for non-coders
 ---
 #### What is Frictionless Data?
-
-* Lightweight standards and tooling to make it effortless to get, share, and validate data
 
 ![Frictionless Data](http://frictionlessdata.io/img/data-package-decouple.png)
 
