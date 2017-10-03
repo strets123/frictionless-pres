@@ -246,11 +246,11 @@
 * Another custom job for download_images
 * This time we need to edit the data and add an image field
 
----?code=smdataproject/download_images.py&lang=python
-@[13-16](Initially we update the datapackage to include a local field name)
-@[17-20](Create a folder (need to add images to data package really))
-@[41-53](Add a function to process a row at a time)
-@[55-57](Pass our functions to `datapackage_pipelines.process`)
+ 
+---?code=smdataproject/download_images.py&lang=python@[13-16](Initially we update the datapackage to include a local field name)
+---?code=smdataproject/download_images.py&lang=python@[17-20](Create a folder (need to add images to data package really))
+---?code=smdataproject/download_images.py&lang=python@[41-53](Add a function to process a row at a time)
+---?code=smdataproject/download_images.py&lang=python@[55-57](Pass our functions to `datapackage_pipelines.process`)
 
 ---
 #### OK so let's run our first pipeline
