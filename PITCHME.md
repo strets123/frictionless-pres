@@ -85,8 +85,6 @@
 ---
 #### Interface
 
-* The (custom) parser used is set by changing the format parameter and passing in a class
-
 
 ```python   
     from tabulator import Stream
@@ -101,8 +99,19 @@
         for array in stream.read():
             process(array)
 ```
----
+* The (custom) parser used is set by changing the format parameter and passing in a class
 
+
+---
+#### What does the data look like?
+
+* Hosted on github because we don't want to patch http or hammer external API
+
+---?code=data/smdatasetpagenumber0&lang=json
+
+@[546](Changed the next link to test pagination)
+
+---
 ##### What do we want our custom parser to do? 
 
 * Let's write a test, source code [here](https://github.com/strets123/frictionless-pres/blob/master/smdataproject/tests/test_parser.py).
@@ -128,16 +137,6 @@
                 self.assertIn("links", item[0])
                 self.assertEqual(len(item), 1)
 ```
-
----
-
-#### Test data
-
-* Hosted on github because we don't want to patch http or hammer external API
-
----?code=data/smdatasetpagenumber0&lang=json
-
-@[546](Changed the next link to test pagination)
 
 ---
 
@@ -214,6 +213,9 @@
 * Parse the json and print a field list, for example:
 
 ---?code=smdataproject/generate_field_list.py&lang=python
+
+---
+#### Output looks like this:
 
 ---?code=data/fieldlist.yaml&lang=yaml
 
