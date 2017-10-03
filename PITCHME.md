@@ -14,13 +14,13 @@
 * Test-driven data science
 * Seamless package management for disparate data sources
 ---
-#### As a developer I additionally want:
-* Architectural guidance from the tools I use
+#### As a developer I want:
+* Architectural guidance from the tools I use, e.g. get more out of python iterators
 * Ability to swap out programming languages and databases
 * To store extendable metadata about columns in the data so it is compatible in many places
 * Single point of responsibility for each module
 ---
-#### As an ops person I also want
+#### As an ops person I want
 * Declarative tools that are easy to containerise
 * Streaming data for low memory usage
 * Consistent data formats across varied customers
@@ -55,10 +55,11 @@
 
 ---
 
-#### OK, I learn best by doing, so let's build an end-to-end tool using frictionless data's tools
+#### OK, I learn best by doing
+
 
 ---
-#### Imaginary Brief
+#### Imaginary Brief to test out Frictionless Data tools
 
 * Research how styles of railway posters from the National Railway Museum collection have changed over time
 
@@ -91,17 +92,16 @@
 
 * Tabulator-py is the successor project to "messytables"
 * A library for reading and writing tabular data (csv/xls/json/etc).
-* Reads data from local, remote, stream or text sources
-* Custom loaders, parsers and writers
+* Custom loaders, parsers and writers supporting urls, streams, files and databases
 ---
 #### Interface
 
 * The (custom) parser used is set by changing the format parameter and passing in a class
 
-    
+
+```python   
     from tabulator import Stream
     
-    ...
     
     with Stream(
         "http://source_uri", 
@@ -111,36 +111,34 @@
         
         for array in stream.read():
             process(array)
+```
 ---
 
 ##### What do we want our custom parser to do? 
 
 * Let's write a test, source code [here](https://github.com/strets123/frictionless-pres/blob/master/smdataproject/tests/test_parser.py).
 
-
+```python
     def test_stream(self):
-        url=("https://raw.githubusercontent.com/strets123"
-        "/frictionless-pres/master/data/"
-        "smdataset%3Fpage%5Bnumber%5D%3D0") # Test data url    
         with tabulator.Stream(
-            url,
+            self.url,
             format="json-api", 
             custom_parsers={     
                 "json-api": jsonapi_parser.JSONAPIParser
                 },
             property='data',
             ) as stream:
-            
+```   
 ---          
 ##### Check we get a single item json out in the correct format
-
+```python
             for index, item in enumerate(stream):
                 self.assertTrue(isinstance(item[0], dict))
                 self.assertIn("attributes", item[0])
                 self.assertIn("id", item[0])
                 self.assertIn("links", item[0])
                 self.assertEqual(len(item), 1)
-
+```
 
 ---
 
@@ -156,12 +154,13 @@
 
 * Let's make that pass
 * Use the <a href="https://github.com/frictionlessdata/tabulator-py/blob/563e3cc9355e456d2da309990ad8b8354b4ce180/tabulator/parsers/json.py" target="_blank">tabulator json parser</a> as a template.
+---
+
 * We need to change the way that the iterator of `tabulator.Stream` yields results
 * This is done by editing the `_iter_extended_rows` function
 ---
 * Original function looks like this:
-
-
+```python
     def __iter_extended_rows(self):
         path = 'item'
         if self.__property is not None:
@@ -182,23 +181,23 @@
                     message = 'JSON item has to be list or dict'
                     raise exceptions.SourceError(message)
                 yield (row_number, None, [])
-
+```
 
 ---
 * Add a pagination loop
 
-
+```python
         start_rownum = 1
         while True:
             path = 'item'
             if self.__property is not None:
                 path = '%s.item' % self.__property
-
+```
 
 ---
 
 * Get the next page of data and continue looping
-
+```python
             json_obj = ijson.items(self.__chars,'')
             for k in json_obj:
                 next_url = k["links"]["next"]
@@ -210,7 +209,7 @@
                 self.__chars.seek(0)
             else:
                 break # Break out of the loop if no next link
-
+```
 ---
 
 #### Make the parser support normalisation
@@ -266,19 +265,22 @@
 ---
 # OK so let's run our first pipeline
 
+---
 We install the dependencies like this:
-
+```bash
     git clone --recurse-submodules https://github.com/strets123/frictionless-pres
     cd frictionless-pres
     conda create -n dpp theano tensorflow keras pillow pandas scikit-learn
     source activate dpp
     pip install datapackage-pipelines
     cd smdataproject
+```
+
     
 ---
 
 I use the datapackage-pipelines cli (dpp) to view the pipelines (in smdataproject directory)
-
+```bash
     dpp
     
     Available Pipelines:
@@ -291,6 +293,7 @@ I use the datapackage-pipelines cli (dpp) to view the pipelines (in smdataprojec
         Missing dependency: Couldn't open datapackage datapackage.json
     - ./science-museum-feature-tsne (E)
         Missing dependency: Failed to find a pipeline dependency
+```
 ---
 To run the pipelines I use for example
 
@@ -313,7 +316,7 @@ Now for the deep learning step using pandas, tensorflow and keras with the resne
 @[86-98](Run the dimensionality reduction step to convert the feautres to a scatter plot)
 
 ---
-# Custom job to run a subprocess
+#### Custom job to run a subprocess
 
 ---
 +++?code=smdataproject/run_shell_command.py&lang=python
@@ -344,16 +347,21 @@ Now for the deep learning step using pandas, tensorflow and keras with the resne
 
 ---
 
-# And this is what the data looks like in [Zegami](https://demo.zegami.com/science%20museum%20railway%20posters)
+#### And this is what the data looks like in [Zegami](https://demo.zegami.com/science%20museum%20railway%20posters)
 
 
 ---
 
 
-# Conclusions from the railway poster project
+#### Conclusions from the railway poster project
+
+---
 * The training data is from resnet - need a network trained on fonts and layout instead to study poster design
+* Simply splitting the images by date in Zegami gives some interesting results
 ---
-# Conclusions after using frictionless data projects
+#### Conclusions after using frictionless data projects
+
+---
 * Tabulator has a great interface and is really flexible and well tested
 * The datapackage pipelines spec is great, as is the CLI
 * We have many ideas for how we would like to improve the underlying codebase and would love for others to join us working on it
@@ -385,7 +393,7 @@ Now for the deep learning step using pandas, tensorflow and keras with the resne
 * Lighter weight repository managment with <a href="https://github.com/datahuborg/datahub" target="_blank">MIT's datahub</a>
 * Update apis for the data from data packages with <a href="http://okfnlabs.org/blog/2014/09/11/data-api-for-data-packages-with-dpm-and-ckan.html" target="_blank">CKAN datastore</a>
 * Data package distribution with <a href="http://okfnlabs.org/projects/dpm/" target="_blank">dpm</a>
-
+---
 #### Similar tools and standards
 
 * [json_normalize](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.io.json.json_normalize.html) is part of the Pandas library and does a similar kind of json normalisation
@@ -393,7 +401,7 @@ Now for the deep learning step using pandas, tensorflow and keras with the resne
 * [odo](http://odo.pydata.org/en/latest/) from continuum provides a similar interface to tabulator but the underlying [datashape](https://github.com/blaze/datashape/blob/master/docs/source/overview.rst) schema system is less extensible and more minimal.
 
 ---
-# Summary
+#### Summary
 
 * Frictionless data and OKFN have created some time-saving tools and standards
 * The community is great, pull requests are merged quickly
@@ -402,12 +410,12 @@ Now for the deep learning step using pandas, tensorflow and keras with the resne
 
 ---
 
-# Acknowledgments
+#### Acknowledgments
 
 * Thanks to the team at Frictionless data / OKFN
 * Thanks to the Science Museum and National Railways Museum for making the data available
 * Thanks to the team at <a href="http://okfnlabs.org/blog/2017/02/27/datapackage-pipelines.html" target="_blank">Openspending for creating the datapackage pipelines project</a>
-* To the team at Zegami (we are hiring)
+* To the team at Zegami (we are hiring) 
 * To everyone for listening
 
 ---
@@ -430,38 +438,3 @@ Now for the deep learning step using pandas, tensorflow and keras with the resne
 
 
 
-
-
-
----
----
----
-
-#### Now we know what we are aiming for we can write a test
-
-+++?code=smdataproject/tests/test_normalising_parser.py&lang=python
-
-@[42-58](Added the schema with our ijson paths)
-@[68](Pass the schema into the new parser)
-@[71-118](Cheat with the assertion by first printing stuff until it looks right...)
-
----
-
-#### Make a few assumptions based on what I have needed over the years
-
----
-
-* The high level data array required is still passed separately to the parser
-* We always want to parse single values of type string, number or boolean
-* Where those values are repeated due to lists or lists of dicts, concatenate them
-
----
-
-#### The end result
-
-+++?code=smdataproject/normalising_parser.py&lang=python
-
-@[65-87](Use ijson to iterate json in an event-driven way)
-
-* Similar to native Java JSON Object building
-* Ask me about this afterwards if you want to know more
