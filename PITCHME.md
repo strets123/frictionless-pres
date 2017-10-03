@@ -27,17 +27,21 @@
 * A tool appropriate for the data sizes involved (<1M rows per collection)
 ---
 #### What is Zegami and why are Zegami interested in Frictionless data?
-* Zegami makes visual information more accesible for exploration, search and discovery
-* Zegami allows data scientists to validate machine learning models visually
-* Zegami works on top of any tabular data format
+
 ---
-#### Who are Zegami's users?
-* People managment - HR and Schools
-* Data scientists
-* Museum curators
-* Scientists
-* Sports coaches and scouts
-* Facilities and financial asset managers
+
+![Zegami](assets/Pic2.jpg)
+
+---
+![Zegami](assets/Pic3.jpg)
+
+---
+![Zegami](assets/Pic5.jpg)
+
+---
+
+![Zegami](assets/Pic11.jpg)
+
 ---
 #### As an evangelist for Zegami I want:
 * Interoperability with customer datastores
@@ -215,7 +219,7 @@
             else:
                 break # Break out of the loop if no next link
 
-
+---
 
 #### Make the parser support normalisation
 
@@ -239,42 +243,16 @@
 @[561-562](The title/name of the poster)
 
 ---
-
-#### Now we know what we are aiming for we can write a test
-
-+++?code=smdataproject/tests/test_normalising_parser.py&lang=python
-
-@[42-58](Added the schema with our ijson paths)
-@[68](Pass the schema into the new parser)
-@[71-118](Cheat with the assertion by first printing stuff until it looks right...)
+#### I then created a [test](https://github.com/strets123/frictionless-pres/blob/master/smdataproject/tests/test_normalising_parser.py) and a [parser](https://github.com/strets123/frictionless-pres/blob/master/smdataproject/normalising_parser.py) which can accept ijson paths
 
 ---
+#### Let's run this parser with datapackage-pipelines
 
-#### Make a few assumptions based on what I have needed over the years
+* Also need to download images in a pipeline after we get the data
+* To use datapackage-pipelines we need a `pipeline-spec.yaml` file
+* For more info on the spec, see [documentation](https://github.com/frictionlessdata/datapackage-pipelines)
 
----
-
-* The high level data array required is still passed separately to the parser
-* We always want to parse single values of type string, number or boolean
-* Where those values are repeated due to lists or lists of dicts, concatenate them
-
----
-
-#### The end result
-
-+++?code=smdataproject/normalising_parser.py&lang=python
-
-@[65-87](Use ijson to iterate json in an event-driven way)
-
-* Similar to native Java JSON Object building
-* Ask me about this afterwards if you want to know more
-
----
-
-* Now need to download images in a pipeline after we get the data
-* Need a pipeline spec yaml file
-
-+++?code=smdataproject/pipeline-spec.yaml&lang=yaml
+---?code=smdataproject/pipeline-spec.yaml&lang=yaml
 
 @[1-10](Add some metadata)
 @[12-15](Add the data package arguments)
@@ -284,34 +262,58 @@
 ---
 * Simple custom job stream_remote_resources_custom
 
-+++?code=smdataproject/stream_remote_resources_custom.py&lang=python
+---?code=smdataproject/stream_remote_resources_custom.py&lang=python
 @[3](Monkey-path the custom module)
 
 ---
 * Another custom job for download_images
 * This time we need to edit the data and add an image field
-+++?code=smdataproject/download_images.py&lang=python
+
+---?code=smdataproject/download_images.py&lang=python
 @[11-20](Initially we update the datapackage to include a local field name)
 ---
 # OK so let's run our first pipeline
 
 We install the dependencies like this:
 
+    git clone --recurse-submodules https://github.com/strets123/frictionless-pres
+    cd frictionless-pres
+    conda create -n dpp theano tensorflow keras pillow pandas scikit-learn
+    source activate dpp
+    pip install datapackage-pipelines
+    cd smdataproject
+    
+---
+
+I use the datapackage-pipelines cli (dpp) to view the pipelines (in smdataproject directory)
+
+    dpp
+    
+    Available Pipelines:
+    INFO    :Main                            :Skipping redis connection, host:None, port:6379
+    - ./science-museum-posters (*)
+    - ./science-museum-feature-extract (E)
+        Dirty dependency: Cannot run until all dependencies are executed
+        Dependency unsuccessful: Cannot run until all dependencies are successfully executed
+    - ./science-museum-join (E)
+        Missing dependency: Couldn't open datapackage datapackage.json
+    - ./science-museum-feature-tsne (E)
+        Missing dependency: Failed to find a pipeline dependency
+---
+To run the pipelines I use for example
+
+
+    dpp run ./science-museum-posters
 
 
 ---
-# Now for the deep learning step using pandas, tensorflow and keras
+Now for the deep learning step using pandas, tensorflow and keras with the resnet training dataset.
 
----
-* Now we have the images downloaded, I have some pandas code to integrate
 * Pandas code uses `read_csv` which is not streaming
 * Create new pipelines which depend on the initial one
----
-# Back to our pipeline
 
----
 
-+++?code=smdataproject/pipeline-spec.yaml&lang=yaml
+---?code=smdataproject/pipeline-spec.yaml&lang=yaml
 
 @[65-69](Dump out the data)
 @[71-85](Add a step to run feature extraction as a subprocess)
@@ -328,10 +330,12 @@ We install the dependencies like this:
 @[6-8](Use logging module not print)
 
 ---
-# For more on the deep learning scripts used see <a href="https://tech.zegami.com/comparing-pre-trained-deep-learning-models-for-feature-extraction-c617da54641" target="_blank">Roger Noble's blog post here</a>
+* For more on the deep learning scripts used see Zegami CTO Roger Noble's<a href="https://tech.zegami.com/comparing-pre-trained-deep-learning-models-for-feature-extraction-c617da54641" target="_blank">blog post here</a>
 
 ---
-* The output from the feature extraction looks like this:
+* The output from the dimensionality reduction looks like this:
+* The x and y coordinates allow images to be clustered in a plane
+
 
     id,x,y
     1975-8398,18.7974,-14.4037
@@ -340,9 +344,7 @@ We install the dependencies like this:
 
 * We need to join this to our original dataset, we can do this with datapackages pipelines
 
----
-
-+++?code=smdataproject/pipeline-spec.yaml&lang=yaml
+---?code=smdataproject/pipeline-spec.yaml&lang=yaml
 
 @[106-125](Tell datapackages-pipelines about the data we just created)
 @[137-150](Join the datasets together - can be either a format string or a list)
@@ -350,7 +352,8 @@ We install the dependencies like this:
 
 ---
 
-# And this is what the data looks like in Zegami
+# And this is what the data looks like in [Zegami](https://demo.zegami.com/science%20museum%20railway%20posters)
+
 
 ---
 
@@ -393,6 +396,12 @@ We install the dependencies like this:
 * Update apis for the data from data packages with <a href="http://okfnlabs.org/blog/2014/09/11/data-api-for-data-packages-with-dpm-and-ckan.html" target="_blank">CKAN datastore</a>
 * Data package distribution with <a href="http://okfnlabs.org/projects/dpm/" target="_blank">dpm</a>
 
+#### Similar tools and standards
+
+* [json_normalize](https://pandas.pydata.org/pandas-docs/stable/generated/pandas.io.json.json_normalize.html) is part of the Pandas library and does a similar kind of json normalisation
+* Trifacta Wrangler (successor to data wrangler) provides numerous methods for data wrangling and code generation
+* [odo](http://odo.pydata.org/en/latest/) from continuum provides a similar interface to tabulator but the underlying [datashape](https://github.com/blaze/datashape/blob/master/docs/source/overview.rst) schema system is less extensible and more minimal.
+
 ---
 # Summary
 
@@ -414,3 +423,55 @@ We install the dependencies like this:
 ---
 
 # Questions
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+---
+---
+
+#### Now we know what we are aiming for we can write a test
+
++++?code=smdataproject/tests/test_normalising_parser.py&lang=python
+
+@[42-58](Added the schema with our ijson paths)
+@[68](Pass the schema into the new parser)
+@[71-118](Cheat with the assertion by first printing stuff until it looks right...)
+
+---
+
+#### Make a few assumptions based on what I have needed over the years
+
+---
+
+* The high level data array required is still passed separately to the parser
+* We always want to parse single values of type string, number or boolean
+* Where those values are repeated due to lists or lists of dicts, concatenate them
+
+---
+
+#### The end result
+
++++?code=smdataproject/normalising_parser.py&lang=python
+
+@[65-87](Use ijson to iterate json in an event-driven way)
+
+* Similar to native Java JSON Object building
+* Ask me about this afterwards if you want to know more
