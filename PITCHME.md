@@ -246,11 +246,6 @@
 * Another custom job for download_images
 * This time we need to edit the data and add an image field
 * Check out the source code [here](https://github.com/strets123/frictionless-pres/blob/master/smdataproject/download_images.py)
----?code=smdataproject/download_images.py&lang=python 
-@[13-16]()
-@[17-20](Create a folder (need to add images to data package really))
-@[41-53](Add a function to process a row at a time)
-@[55-57](Pass our functions to `datapackage_pipelines.process`)
 
 ---
 #### OK so let's run our first pipeline
