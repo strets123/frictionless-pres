@@ -234,22 +234,25 @@
 @[1-10](Add some metadata)
 @[12-15](Add the data package arguments)
 @[53-56](Custom job to download the data)
-@[56-62](Custom job to download the images)
+@[57-64](Custom job to download the images)
 
 ---
-* Simple custom job stream_remote_resources_custom
+* Now we create a python module called `stream_remote_resources_custom.py` to download the data
 
 ---?code=smdataproject/stream_remote_resources_custom.py&lang=python
-@[3](Need to contribute a better way to do this...)
+@[4-5](Need to contribute a better way to do this...)
 
 ---
 * Another custom job for download_images
 * This time we need to edit the data and add an image field
 
 ---?code=smdataproject/download_images.py&lang=python
-@[11-20](Initially we update the datapackage to include a local field name)
+@[13-16](Initially we update the datapackage to include a local field name)
+@[17-20](Create a folder (need to add images to data package really))
+@[42-56](Pass functions in to the process wrapper)
+
 ---
-# OK so let's run our first pipeline
+#### OK so let's run our first pipeline
 
 ---
 We install the dependencies like this:
