@@ -210,9 +210,18 @@
 
 #### Which fields do we want and what are they called in ijson language?
 
-* Parse the json and print a field list, for example:
+* Parse the json and print a field list like this:
 
----?code=smdataproject/generate_field_list.py&lang=python
+```python
+
+with open(filename) as f:
+    for prefix, event, value in ijson.parse(f):
+        if event in ('string', 'number', 'boolean', 'null'):
+            print("-  "+ prefix)
+            print("  -  " + str(value)[:100])
+            print("\n")
+```
+* Source code is [here](https://github.com/strets123/frictionless-pres/blob/master/smdataproject/generate_field_list.py)
 
 ---
 #### Output looks like this:
@@ -228,7 +237,6 @@
 ---
 #### Let's run this parser with datapackage-pipelines
 
-* Also need to download images in a pipeline after we get the data
 * To use datapackage-pipelines we need a `pipeline-spec.yaml` file
 * For more info on the spec, see [documentation](https://github.com/frictionlessdata/datapackage-pipelines)
 
@@ -304,7 +312,7 @@ I use the datapackage-pipelines cli (dpp) to view the pipelines (in smdataprojec
 @[86-98](Run the dimensionality reduction step to convert the feautres to a scatter plot)
 
 ---
-#### Custom job to run a subprocess
+#### Custom job to run a different script in a subprocess
 
 ---
 +++?code=smdataproject/run_shell_command.py&lang=python
@@ -313,17 +321,21 @@ I use the datapackage-pipelines cli (dpp) to view the pipelines (in smdataprojec
 @[6-8](Use logging module not print)
 
 ---
-* For more on the deep learning scripts used see Zegami CTO Roger Noble's<a href="https://tech.zegami.com/comparing-pre-trained-deep-learning-models-for-feature-extraction-c617da54641" target="_blank">blog post here</a>
-
+* For more on the deep learning scripts used see Zegami CTO Roger Noble's <a href="https://tech.zegami.com/comparing-pre-trained-deep-learning-models-for-feature-extraction-c617da54641" target="_blank">blog post here</a>
+* For more information about t-Distributed Stochastic Neighbor Embedding (t-SNE) see the video <a href="https://www.youtube.com/watch?v=RJVL80Gg3lA" target="_blank">here</a>
 ---
 * The output from the dimensionality reduction looks like this:
-* The x and y coordinates allow images to be clustered in a plane
 
 
     id,x,y
     1975-8398,18.7974,-14.4037
     2000-7803,3.64917,10.2163
     1977-5672,6.50948,21.1126
+* The x and y coordinates allow images to be clustered in a plane
+---
+#### What's the next step?
+
+---
 
 * We need to join this to our original dataset, we can do this with datapackages pipelines
 
@@ -346,6 +358,7 @@ I use the datapackage-pipelines cli (dpp) to view the pipelines (in smdataprojec
 ---
 * The training data is from resnet - need a network trained on fonts and layout instead to study poster design
 * Simply splitting the images by date in Zegami gives some interesting results
+* Please suggest other attributes we could calculate for this dataset
 
 ---
 #### Conclusions after using frictionless data projects
