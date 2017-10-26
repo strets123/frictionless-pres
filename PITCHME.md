@@ -12,7 +12,7 @@
 ---?image=assets/Pic-11.jpg&size=auto 80%
 
 ---
-# Zegami needed a way to get data into and out of the tool
+#### Zegami needed a way to get data into and out of the tool
 * Simple, standards-driven export
 * Adapters for web and API data
 * Adapters for customer databases
