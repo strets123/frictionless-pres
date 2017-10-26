@@ -2,27 +2,7 @@
 
 #### Frictionless Data, Frictionless Development
 ---
-#### What is data / document management about?
-![Cloudstuff](cloud.jpg)
----
-#### Means many things to many people
----
 
-#### As a data scientist I want:
-* Reproducible analyses 
-* New tools that work with legacy scripts
-* Test-driven data science
----
-#### As a developer I want to:
-* Get more out of python iterators
-* Ability to swap out languages and databases
-* Single point of responsibility for each module
----
-#### As an ops person I want
-* Declarative tools that are easy to containerise
-* Streaming data for low memory usage
-* Consistent data formats across varied customers
---- 
 #### What is Zegami and why are Zegami interested in Frictionless data?
 ---
 ---?image=assets/pic1.png
@@ -32,10 +12,12 @@
 ---?image=assets/Pic-11.jpg&size=auto 80%
 
 ---
-#### As an evangelist for Zegami I want:
-* Interoperability with customer datastores
-* To do the right thing - open source, open standards
-* Standards that work for both front-end and CLI tools
+# Zegami needed a way to get data into and out of the tool
+* Simple, standards-driven export
+* Adapters for web and API data
+* Adapters for customer databases
+* Easy to run in containers
+
 ---
 #### What is Frictionless Data?
 
@@ -91,7 +73,7 @@
     
     
     with Stream(
-        "http://source_uri", 
+        "http://source_uri",  # Can be a database uri, a url or something else you invent
         custom_parsers={'json-api': CustomParser}
         format="json-api"
         ) as stream:

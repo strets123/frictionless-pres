@@ -62,7 +62,12 @@ science-museum-posters:
         remote_image-url: 'large_image_link'
         base_url: 'https://smgco-images.s3.amazonaws.com/media/'
         local_path: 'data/images/'
-
+    -
+      run: image_colours
+      parameters:
+        resources: ['smjsondata']
+        local_image_column: 'image'
+        local_path: 'data/images/'
     -
       run: dump.to_path
       parementers:
