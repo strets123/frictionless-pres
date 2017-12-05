@@ -21,7 +21,7 @@
 ---
 #### What is Frictionless Data?
 
-![Frictionless Data](http://frictionlessdata.io/img/data-package-decouple.png)
+![Frictionless Data](https://frictionlessdata.io/diagram.png)
 
 ---
 
@@ -43,12 +43,12 @@
 
 ---
 
-#### Which of the frictionless data tools and standards?
+#### Which of the frictionless data software and specifications?
 
 * <a href="http://okfnlabs.org/blog/2017/02/27/datapackage-pipelines.html" target="_blank">Datapackage-pipelines</a> - declarative flow control
 * <a href="https://github.com/frictionlessdata/tableschema-py" target="_blank">Tableschema-py</a> - to infer the schema and validate new data
 * <a href="https://github.com/frictionlessdata/tabulator-py" target="_blank">Tabulator</a> - a common interface for import and export of tabular data
-* Standards - <a href="http://frictionlessdata.io/data-packages/" target="_blank">datapackages</a>, <a href="http://dataprotocols.readthedocs.io/en/latest/json-table-schema.html" target="_blank">json table schema</a>,  <a href="https://github.com/frictionlessdata/datapackage-pipelines" target="_blank"> datapackage-pipeline</a> spec
+* Specifications - <a href="http://frictionlessdata.io/data-packages/" target="_blank">datapackages</a>, <a href="http://frictionlessdata.io/specs/table-schema/" target="_blank">table schema</a>,  <a href="https://github.com/frictionlessdata/datapackage-pipelines" target="_blank"> datapackage-pipeline</a> spec
 * Other interoperable tools along the way
 
 ---
@@ -354,7 +354,7 @@ I use the datapackage-pipelines cli (dpp) to view the pipelines (in smdataprojec
 
 ---
 
-#### <a href="http://frictionlessdata.io/tools/" target="_blank">frictionlessdata.io/tools/</a>
+#### <a href="http://frictionlessdata.io/software/" target="_blank">frictionlessdata.io/software/</a>
 
 
 ---
@@ -387,7 +387,7 @@ I use the datapackage-pipelines cli (dpp) to view the pipelines (in smdataprojec
 ---
 #### Summary
 
-* Frictionless data and OKFN have created some time-saving tools and standards
+* Frictionless data and OKI have created some time-saving software and specifications
 * The community is great, pull requests are merged quickly
 * When you are struggling with a data model for a task or a schema, frictionless data's standards provide guidance
 * Tools tend to be well balanced in terms to who has influenced their development
@@ -396,7 +396,7 @@ I use the datapackage-pipelines cli (dpp) to view the pipelines (in smdataprojec
 
 #### Acknowledgments
 
-* Thanks to the team at Frictionless data / OKFN
+* Thanks to the team at Frictionless data / OKI
 * Thanks to the Science Museum and National Railways Museum for making the data available
 * Thanks to the team at <a href="http://okfnlabs.org/blog/2017/02/27/datapackage-pipelines.html" target="_blank">Openspending for creating the datapackage pipelines project</a>
 * To the team at Zegami (we are hiring) 
